@@ -29,11 +29,10 @@ public class HatchEject extends Command {
   protected void execute() {
     if (PistonsOut){
       Robot.m_Pneumatics.PistonDeploy();
-      HasRan=true;
     }else{
       Robot.m_Pneumatics.PistonStore();
-      HasRan=true;
     }
+    HasRan=true;
   }
 
   // Make this return true when this Command no longer needs to run execute()

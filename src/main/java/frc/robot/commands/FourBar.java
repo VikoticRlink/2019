@@ -29,11 +29,10 @@ public class FourBar extends Command {
   protected void execute() {
     if (Deploy){
       Robot.m_Pneumatics.FourBarDeploy();
-      HasRan = true;
     }else{
       Robot.m_Pneumatics.FourBarStore();
-      HasRan = true;
     }
+    HasRan = true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
