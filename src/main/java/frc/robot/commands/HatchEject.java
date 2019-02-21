@@ -11,6 +11,7 @@ import frc.robot.Robot;
 
 
 public class HatchEject extends Command {
+  Boolean HasRan = false;
   Boolean PistonsOut;
   public HatchEject(Boolean EjectDisk) {
     PistonsOut = EjectDisk;
@@ -28,15 +29,17 @@ public class HatchEject extends Command {
   protected void execute() {
     if (PistonsOut){
       Robot.m_Pneumatics.PistonDeploy();
+      HasRan=true;
     }else{
       Robot.m_Pneumatics.PistonStore();
+      HasRan=true;
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return HasRan;
   }
 
   // Called once after isFinished returns true

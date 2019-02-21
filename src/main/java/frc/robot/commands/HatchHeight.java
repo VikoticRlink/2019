@@ -12,6 +12,7 @@ import frc.robot.Robot;
 
 public class HatchHeight extends Command {
   int HatchLevel;
+  Boolean HasRan = false;
   public HatchHeight(int HatchHeight) {
     requires(Robot.m_Elevator);
     HatchLevel = HatchHeight;
@@ -35,13 +36,13 @@ public class HatchHeight extends Command {
       Robot.m_Elevator.Level3();
       break;
     }
-
+HasRan=true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return HasRan;
   }
 
   // Called once after isFinished returns true

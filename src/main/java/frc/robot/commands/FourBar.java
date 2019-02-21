@@ -12,6 +12,7 @@ import frc.robot.Robot;
 
 public class FourBar extends Command {
   Boolean Deploy;
+  Boolean HasRan = false;
   public FourBar(Boolean DeployMe) {
     Deploy = DeployMe;
     // Use requires() here to declare subsystem dependencies
@@ -28,15 +29,17 @@ public class FourBar extends Command {
   protected void execute() {
     if (Deploy){
       Robot.m_Pneumatics.FourBarDeploy();
+      HasRan = true;
     }else{
       Robot.m_Pneumatics.FourBarStore();
+      HasRan = true;
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return HasRan;
   }
 
   // Called once after isFinished returns true
