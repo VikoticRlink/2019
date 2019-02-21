@@ -36,7 +36,7 @@ public class HatchHeight extends Command {
       Robot.m_Elevator.Level3();
       break;
     }
-HasRan=true;
+    HasRan=true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
