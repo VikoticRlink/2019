@@ -59,7 +59,7 @@ public class Robot extends TimedRobot {
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    //Testing Buttons
+    // Testing Buttons
     SmartDashboard.putData("Elevator 1", new HatchHeight(1));
     SmartDashboard.putData("Elevator 2", new HatchHeight(2));
     SmartDashboard.putData("Elevator 3", new HatchHeight(3));
@@ -68,7 +68,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Deploy pistons", new HatchEject(true));
     SmartDashboard.putData("Retract pistons", new HatchEject(false));
     SmartDashboard.putData("Zero Elevator", new ZeroElevator());
-    
+    // Remove before going live.
   }
 
   /**
