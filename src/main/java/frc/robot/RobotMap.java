@@ -99,7 +99,7 @@ public class RobotMap {
       _rearLeftMotor.setInverted(InvertType.FollowMaster);
       _rearRightMotor.setInverted(InvertType.FollowMaster);
       _elevatorSlave.setInverted(InvertType.FollowMaster);
-      _climbLeftArm.setInverted(InvertType.FollowMaster);
+      _climbLeftArm.setInverted(false);
 
       _frontLeftMotor.setNeutralMode(NeutralMode.Brake);
       _frontRightMotor.setNeutralMode(NeutralMode.Brake);
