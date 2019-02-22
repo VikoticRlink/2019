@@ -65,6 +65,12 @@ public class OI {
 	public static double OperatorRightJoystick() {
 		return OperatorController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
+	public static double OperatorRightTrigger() {
+		return OperatorController.getTriggerAxis(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
+	}
+	public static double OperatorLeftTrigger() {
+		return OperatorController.getTriggerAxis(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+	}
 	public static void OperatorRumbleEnhanced(int Duration, double intensity, boolean rLeft, boolean rRight) {
 		RumbleEnhanced(OperatorController, Duration, intensity, rLeft, rRight);
 	}

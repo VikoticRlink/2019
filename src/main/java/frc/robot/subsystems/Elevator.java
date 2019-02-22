@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.OI;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 
@@ -30,6 +31,11 @@ public class Elevator extends Subsystem {
   @Override
     public void periodic() {
 
+        if (!RobotMap.autoControl){
+          
+				RobotMap._elevatorMotor.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+        }
+
     }
     public void FourArmDeploy(){
 
@@ -45,5 +51,18 @@ public class Elevator extends Subsystem {
     }
     public void Climb(){
       RobotMap._elevatorMotor.set(ControlMode.Position, 7000);//We need to find the real value.
+    }
+
+
+    private double getJoystickWithDeadBand(double joystickvalue) {
+      if (Math.abs(joystickvalue)<.1) {
+        return 0 * RobotMap.robotDirection;
+      } else if (joystickvalue > .9) {
+        return 1 * RobotMap.robotDirection;
+      }else if (joystickvalue < -0.9) {
+        return -1 * RobotMap.robotDirection;
+      } else {
+        return joystickvalue * RobotMap.robotDirection;
+      }
     }
 }
