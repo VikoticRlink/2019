@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.*;
 
-
 public class OI {
 	private static XboxController DriverController, OperatorController;
 	final Button DriverStart, DriverBack;
@@ -29,13 +28,13 @@ public class OI {
 
 		OperatorController = new XboxController(1);
 		OperatorA= new JoystickButton(OperatorController, 1);
-	//	OperatorA.whenPressed(new PlaceHatch1());
+		OperatorA.whenPressed(new FourBar(true));
 		OperatorB = new JoystickButton(OperatorController, 2);
-	//	OperatorB.whenPressed(new PlaceHatch2());
+		OperatorB.whenPressed(new FourBar(false));
 		OperatorX = new JoystickButton(OperatorController, 3);
-	//	OperatorX.whenPressed(new AquireHatch());
+		OperatorX.whenPressed(new HatchEject(true));
 		OperatorY = new JoystickButton(OperatorController, 4);
-	//	OperatorY.whenPressed(new PlaceHatch3());
+		OperatorY.whenPressed(new HatchEject(false));
 		OperatorlBump = new JoystickButton(OperatorController, 5);
 		OperatorrBump = new JoystickButton(OperatorController, 6);
 		OperatorBack = new JoystickButton(OperatorController, 7);
