@@ -32,15 +32,15 @@ public class ClimberTo extends Command {
       switch (ClimberLevel){
       case 0:
         Robot.m_Climber.Home();
-        if (RobotMap.ClimbArmLevels[0] -300 < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[0]+300){HasRan=true;}
+        if (RobotMap.ClimbArmLevels[0] - RobotMap.ClimbError < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[0]+RobotMap.ClimbError){HasRan=true;}
       break;
       case 1:
         Robot.m_Climber.Floor();
-        if (RobotMap.ClimbArmLevels[1] -300 < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[1]+300){HasRan=true;}
+        if (RobotMap.ClimbArmLevels[1] - RobotMap.ClimbError < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[1]+RobotMap.ClimbError){HasRan=true;}
       break;
       case 2:
         Robot.m_Climber.Lift();
-        if (RobotMap.ClimbArmLevels[2] -300 < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[2]+300){HasRan=true;}
+        if (RobotMap.ClimbArmLevels[2] - RobotMap.ClimbError < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[2]+RobotMap.ClimbError){HasRan=true;}
       break;
       }
   }

@@ -36,8 +36,10 @@ public class RobotMap {
     //--- Settings for Encoders ---//
     //find value for Climb
     public static int[] ElevatorLevels= {7000, 6798, 300, -4555, -18723}; //Climb, Level1, Home, Level 2, Level 3
+    public static int ElevatorError = 300;
     //find values for Floor and Climb
     public static int[] ClimbArmLevels = {0, 4096, 8192}; //Home, Floor, Climb
+    public static int ClimbError = 300;
 
     //--- Collision Threshold ---//
     public static double kCollisionThreshold_DeltaG = 0.2f;
