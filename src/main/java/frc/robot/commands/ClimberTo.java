@@ -9,12 +9,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class FourBar extends Command {
-  Boolean Deploy;
+public class ClimberTo extends Command {
+  int ClimberLevel;
   Boolean HasRan = false;
-  public FourBar(Boolean DeployMe) {
-    Deploy = DeployMe;
+  public ClimberTo(int Climb) {
+    requires(Robot.m_Elevator);
+    ClimberLevel = Climb;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,12 +29,20 @@ public class FourBar extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Deploy){
-      Robot.m_Pneumatics.FourBarDeploy();
-    }else{
-        Robot.m_Pneumatics.FourBarStore();
-    }
-    HasRan = true;
+      switch (ClimberLevel){
+      case 0:
+        Robot.m_Climber.Home();
+        if (RobotMap.ClimbArmLevels[0] -300 < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[0]+300){HasRan=true;}
+      break;
+      case 1:
+        Robot.m_Climber.Floor();
+        if (RobotMap.ClimbArmLevels[1] -300 < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[1]+300){HasRan=true;}
+      break;
+      case 2:
+        Robot.m_Climber.Lift();
+        if (RobotMap.ClimbArmLevels[2] -300 < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[2]+300){HasRan=true;}
+      break;
+      }
   }
 
   // Make this return true when this Command no longer needs to run execute()

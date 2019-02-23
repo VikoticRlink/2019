@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class HatchHeight extends Command {
   int HatchLevel;
@@ -26,17 +27,28 @@ public class HatchHeight extends Command {
   @Override
   protected void execute() {
     switch (HatchLevel){
+    case 0:
+      Robot.m_Elevator.Home();
+      if (RobotMap.ElevatorLevels[2] -300 < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[2]+300){HasRan=true;}
+      break;
     case 1:
       Robot.m_Elevator.Level1();
+      if (RobotMap.ElevatorLevels[1] -300 < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[1]+300){HasRan=true;}
       break;
     case 2:
       Robot.m_Elevator.Level2();
+      if (RobotMap.ElevatorLevels[3] -300 < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[3]+300){HasRan=true;}
       break;
     case 3: 
       Robot.m_Elevator.Level3();
+      if (RobotMap.ElevatorLevels[4] -300 < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[4]+300){HasRan=true;}
+      break;
+    case 4: 
+      Robot.m_Elevator.Climb();
+      if (RobotMap.ElevatorLevels[0] -300 < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[0]+300){HasRan=true;}
       break;
     }
-    HasRan=true;
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

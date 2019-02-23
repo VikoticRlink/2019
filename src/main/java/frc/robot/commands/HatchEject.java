@@ -8,7 +8,6 @@
 package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 
 public class HatchEject extends Command {
@@ -29,11 +28,9 @@ public class HatchEject extends Command {
   @Override
   protected void execute() {
     if (PistonsOut){
-      Robot.m_Pneumatics.PistonDeploy();
-      RobotMap.HatchDeployerOut=true;
+        Robot.m_Pneumatics.PistonDeploy();
     }else{
       Robot.m_Pneumatics.PistonStore();
-      RobotMap.HatchDeployerOut=false;
     }
     HasRan=true;
   }

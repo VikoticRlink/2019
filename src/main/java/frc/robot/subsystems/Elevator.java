@@ -30,29 +30,30 @@ public class Elevator extends Subsystem {
   }
   @Override
     public void periodic() {
-
+        //---Test Code ---//
         if (!RobotMap.autoControl){
-          
-				RobotMap._elevatorMotor.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+  				RobotMap._elevatorMotor.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorRightJoystick()));
         }
+        //--- ---//
 
     }
-    public void FourArmDeploy(){
-
+    public void Home(){
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[2]);
     }
+
     public void Level1(){
       if (RobotMap.FourBarOut==true){
-        RobotMap._elevatorMotor.set(ControlMode.Position, 6798);
+        RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[1]);
       }
     }
     public void Level2(){
-      RobotMap._elevatorMotor.set(ControlMode.Position, -4555);
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[3]);
     }
     public void Level3(){
-      RobotMap._elevatorMotor.set(ControlMode.Position, -18723);
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[4]);
     }
     public void Climb(){
-      RobotMap._elevatorMotor.set(ControlMode.Position, 7000);//We need to find the real value.
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[0]);
     }
 
 

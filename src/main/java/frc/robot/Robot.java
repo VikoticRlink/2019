@@ -93,7 +93,9 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void disabledPeriodic() {
+  public void disabledPeriodic() {    
+    NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
+    NetworkTableInstance.getDefault().getTable("limelight").getEntry("ledMode").setNumber(0);
     Scheduler.getInstance().run();
   }
 
@@ -149,9 +151,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    
-    NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
-    NetworkTableInstance.getDefault().getTable("limelight").getEntry("ledMode").setNumber(0);
+
     Scheduler.getInstance().run();
   }
 

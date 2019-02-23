@@ -34,7 +34,21 @@ public class Climber extends Subsystem {
       }
 
   }
-
+  public void Home(){
+    if (RobotMap.FourBarOut==true){
+      RobotMap._climbRightArm.set(ControlMode.Position, RobotMap.ClimbArmLevels[0]);
+    }
+  }
+  public void Floor(){
+    if (RobotMap.FourBarOut==true){
+      RobotMap._climbRightArm.set(ControlMode.Position, RobotMap.ClimbArmLevels[1]);
+    }
+  }
+  public void Lift(){
+    if (RobotMap.FourBarOut==true){
+      RobotMap._climbRightArm.set(ControlMode.Position, RobotMap.ClimbArmLevels[2]);
+    }
+  }
   private double getJoystickWithDeadBand(double joystickvalue) {
     if (Math.abs(joystickvalue)<.1) {
       return 0 * RobotMap.robotDirection;
