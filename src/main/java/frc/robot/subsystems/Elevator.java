@@ -41,7 +41,9 @@ public class Elevator extends Subsystem {
 
     }
     public void Level1(){
-      RobotMap._elevatorMotor.set(ControlMode.Position, 6798);
+      if (RobotMap.FourBarOut==true){
+        RobotMap._elevatorMotor.set(ControlMode.Position, 6798);
+      }
     }
     public void Level2(){
       RobotMap._elevatorMotor.set(ControlMode.Position, -4555);

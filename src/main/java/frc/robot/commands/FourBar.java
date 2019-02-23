@@ -30,9 +30,11 @@ public class FourBar extends Command {
   protected void execute() {
     if (Deploy){
       Robot.m_Pneumatics.FourBarDeploy();
+      RobotMap.FourBarOut=true;
     }else{
       if (RobotMap._elevatorMotor.getSelectedSensorPosition(0)>=0){
         Robot.m_Pneumatics.FourBarStore();
+        RobotMap.FourBarOut=false;
       }
     }
     HasRan = true;

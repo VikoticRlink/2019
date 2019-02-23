@@ -38,7 +38,9 @@ public class RobotMap {
     //Pneumatics
  	 public static Compressor airSupply;
    public static DoubleSolenoid HatchDeployer;
+   public static Boolean HatchDeployerOut=false;
    public static DoubleSolenoid FourBarDeployer;
+   public static Boolean FourBarOut=false;
 
   	//Motor Controllers
     public static WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1);
