@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class FourBar extends Command {
   Boolean Deploy;
@@ -30,7 +31,9 @@ public class FourBar extends Command {
     if (Deploy){
       Robot.m_Pneumatics.FourBarDeploy();
     }else{
-      Robot.m_Pneumatics.FourBarStore();
+      if (RobotMap._elevatorMotor.getSelectedSensorPosition(0)>=0){
+        Robot.m_Pneumatics.FourBarStore();
+      }
     }
     HasRan = true;
   }
