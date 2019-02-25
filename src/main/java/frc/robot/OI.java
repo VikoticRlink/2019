@@ -39,6 +39,7 @@ public class OI {
 		OperatorrBump = new JoystickButton(OperatorController, 6);
 		OperatorBack = new JoystickButton(OperatorController, 7);
 		OperatorStart = new JoystickButton(OperatorController, 8);
+		OperatorStart.whenPressed(new AbortAll());
 	}
 	
 	//Driver Code
