@@ -68,6 +68,13 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Deploy pistons", new HatchEject(true));
     SmartDashboard.putData("Retract pistons", new HatchEject(false));
     SmartDashboard.putData("Zero Elevator", new ZeroElevator());
+    SmartDashboard.putData("Climber to Home", new ClimberTo(0));
+    SmartDashboard.putData("Climber to Floor", new ClimberTo(1));
+    SmartDashboard.putData("Climber to Climb", new ClimberTo(2));
+    SmartDashboard.putData("Abort Commands", new AbortAll());
+    SmartDashboard.putData("Reset after Port", new Reset());
+    SmartDashboard.putData("Store All", new StoreAll());
+
     // Remove before going live.
   }
 
