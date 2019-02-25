@@ -14,6 +14,8 @@ public class AquireHatch extends CommandGroup {
    * Add your docs here.
    */
   public AquireHatch() {
+    addSequential(new FourBar(true));
+    addSequential(new HatchEject(false));
     addSequential(new HatchHeight(1));
     addSequential(new DriveToPort());
     addSequential(new Reset());
