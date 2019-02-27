@@ -76,6 +76,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Store All", new StoreAll());
 
     // Remove before going live.
+
+    m_Pneumatics.FourBarStore();
+    m_Pneumatics.PistonStore();
   }
 
   /**

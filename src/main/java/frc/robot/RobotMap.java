@@ -78,8 +78,9 @@ public class RobotMap {
 
       //--- Limit Switches ---//
       LimitLowerElevator = new DigitalInput(0);
-      LimitUpperElevator = new DigitalInput(1);
-      LimitLower2Elevator = new DigitalInput(2);
+
+      LimitLower2Elevator = new DigitalInput(1);
+      LimitUpperElevator = new DigitalInput(2);
       LimitUpper2Elevator = new DigitalInput(3);
 
       //--- Pneumatics ---//
