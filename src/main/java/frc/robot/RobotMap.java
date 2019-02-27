@@ -26,7 +26,7 @@ import com.ctre.phoenix.motorcontrol.can.*;
 public class RobotMap {
     //---- General setup ---//
     public static int robotDirection = 1;
-    public static double maxSpeed = .6;
+    public static double maxSpeed = 0.6;
     public static double encoderPerRev = 4096;
     public static final double kSensorUnitsPerRotation = 4096;
     public static double slowSpeed = encoderPerRev / 300 * 100;//last number is RPM, converts to encoder ticks
@@ -37,6 +37,7 @@ public class RobotMap {
     //--- Settings for Encoders ---//
     //find value for Climb
     public static int[] ElevatorLevels= {7000, 6798, 300, -4555, -18723}; //Climb, Level1, Home, Level 2, Level 3
+    public static int[] ElevatorClimb={-4555,7000};//Climb start, Climb End
     public static int ElevatorError = 300;
     //find values for Floor and Climb
     public static int[] ClimbArmLevels = {0, 4096, 8192}; //Home, Floor, Climb
