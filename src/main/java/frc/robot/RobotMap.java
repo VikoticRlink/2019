@@ -26,6 +26,7 @@ import com.ctre.phoenix.motorcontrol.can.*;
 public class RobotMap {
     //---- General setup ---//
     public static int robotDirection = 1;
+    public static double maxSpeed = .6;
     public static double encoderPerRev = 4096;
     public static final double kSensorUnitsPerRotation = 4096;
     public static double slowSpeed = encoderPerRev / 300 * 100;//last number is RPM, converts to encoder ticks
