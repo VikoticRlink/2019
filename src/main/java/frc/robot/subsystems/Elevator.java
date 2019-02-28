@@ -38,7 +38,7 @@ public class Elevator extends Subsystem {
 
     }
     public void Home(){
-      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[2]);
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[0]);
     }
 
     public void Level1(){
@@ -47,13 +47,16 @@ public class Elevator extends Subsystem {
       }
     }
     public void Level2(){
-      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[3]);
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[2]);
     }
     public void Level3(){
-      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[4]);
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[3]);
     }
-    public void Climb(){
-      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[0]);
+    public void StartClimb(){
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorClimb[0]);
+    }
+    public void FinishClimb(){
+      RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorClimb[1]);
     }
 
 
