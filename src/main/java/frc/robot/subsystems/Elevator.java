@@ -32,7 +32,7 @@ public class Elevator extends Subsystem {
     public void periodic() {
         //---Test Code ---//
         if (!RobotMap.autoControl){
-  				RobotMap._elevatorMotor.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+  				RobotMap._elevatorMotor.set(ControlMode.PercentOutput, 0.5 * getJoystickWithDeadBand(OI.OperatorRightJoystick()));
         }
         //--- ---//
 
