@@ -56,11 +56,27 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
 
 
+    // Testing Buttons
+    SmartDashboard.putData("Elevator 1", new HatchHeight(1));
+    SmartDashboard.putData("Elevator 2", new HatchHeight(2));
+    SmartDashboard.putData("Elevator 3", new HatchHeight(3));
+    SmartDashboard.putData("Deploy Fourbar", new FourBar(true));
+    SmartDashboard.putData("Retract Fourbar", new FourBar(false));
+    SmartDashboard.putData("Deploy pistons", new HatchEject(true));
+    SmartDashboard.putData("Retract pistons", new HatchEject(false));
+    SmartDashboard.putData("Zero Elevator", new ZeroElevator());
+    SmartDashboard.putData("Climber to Home", new ClimberTo(0));
+    SmartDashboard.putData("Climber to Floor", new ClimberTo(1));
+    SmartDashboard.putData("Climber to Climb", new ClimberTo(2));
+    SmartDashboard.putData("Abort Commands", new AbortAll());
+    SmartDashboard.putData("Reset after Port", new Reset());
+    SmartDashboard.putData("Store All", new StoreAll());
+    // Remove before going live.
+
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
 
-    // Remove before going live.
 
     m_Pneumatics.FourBarStore();
     m_Pneumatics.PistonStore();
@@ -77,21 +93,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     
-    // Testing Buttons
-    SmartDashboard.putData("Elevator 1", new HatchHeight(1));
-    SmartDashboard.putData("Elevator 2", new HatchHeight(2));
-    SmartDashboard.putData("Elevator 3", new HatchHeight(3));
-    SmartDashboard.putData("Deploy Fourbar", new FourBar(true));
-    SmartDashboard.putData("Retract Fourbar", new FourBar(false));
-    SmartDashboard.putData("Deploy pistons", new HatchEject(true));
-    SmartDashboard.putData("Retract pistons", new HatchEject(false));
-    SmartDashboard.putData("Zero Elevator", new ZeroElevator());
-    SmartDashboard.putData("Climber to Home", new ClimberTo(0));
-    SmartDashboard.putData("Climber to Floor", new ClimberTo(1));
-    SmartDashboard.putData("Climber to Climb", new ClimberTo(2));
-    SmartDashboard.putData("Abort Commands", new AbortAll());
-    SmartDashboard.putData("Reset after Port", new Reset());
-    SmartDashboard.putData("Store All", new StoreAll());
   }
 
   /**
