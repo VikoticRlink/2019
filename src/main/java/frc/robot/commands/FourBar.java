@@ -30,7 +30,7 @@ public class FourBar extends Command {
     if (Deploy){
       Robot.m_Pneumatics.FourBarDeploy();
     }else{
-        Robot.m_Pneumatics.FourBarStore();
+      Robot.m_Pneumatics.FourBarStore();
     }
     HasRan = true;
   }

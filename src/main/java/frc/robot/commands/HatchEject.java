@@ -28,7 +28,7 @@ public class HatchEject extends Command {
   @Override
   protected void execute() {
     if (PistonsOut){
-        Robot.m_Pneumatics.PistonDeploy();
+      Robot.m_Pneumatics.PistonDeploy();
     }else{
       Robot.m_Pneumatics.PistonStore();
     }
