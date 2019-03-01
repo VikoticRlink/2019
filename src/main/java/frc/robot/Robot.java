@@ -71,6 +71,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Abort Commands", new AbortAll());
     SmartDashboard.putData("Reset after Port", new Reset());
     SmartDashboard.putData("Store All", new StoreAll());
+    SmartDashboard.putData("Drive to Port", new DriveToPort());
     // Remove before going live.
 
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
