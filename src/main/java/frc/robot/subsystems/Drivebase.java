@@ -71,8 +71,8 @@ public class Drivebase extends Subsystem {
 				RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  0.3 * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
 			
 			}else{
-				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, 0.6 * getJoystickWithDeadBand(OI.DriverRightJoystick()));
-				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, 0.6 * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
+				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
+				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
 			}
 	}
 

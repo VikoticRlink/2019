@@ -37,9 +37,9 @@ public class RobotMap {
     //--- Settings for Encoders ---//
     //find value for Climb
     //public static int[] ElevatorLevels= {7000, 6798, 300, -4555, -18723}; //Climb, Level1, Home, Level 2, Level 3
-    public static int[] ElevatorLevels= {300, 6798, -4555, -18723}; //Home, Level1, Level 2, Level 3
+    public static int[] ElevatorLevels= {-500, 8000, -6795, -18723}; //Home, Level1, Level 2, Level 3
     public static int[] ElevatorClimb={-1300,8606};//Climb start, Climb End
-    public static int ElevatorError = 300;
+    public static int ElevatorError = 150;
     //find values for Floor and Climb
     public static int[] ClimbArmLevels = {0, 2332, 3781}; //Home, Floor, Climb
     public static int ClimbError = 300;
