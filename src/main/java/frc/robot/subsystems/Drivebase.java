@@ -18,10 +18,10 @@ import com.kauailabs.navx.frc.AHRS;
  * Add your docs here.
  */
 public class Drivebase extends Subsystem {	
-	public static AHRS ahrs;
+	//public static AHRS ahrs;
 
-	double last_world_linear_accel_x;
-	double last_world_linear_accel_y;
+	//double last_world_linear_accel_x;
+	//double last_world_linear_accel_y;
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
     //DifferentialDrive MainDrive = new DifferentialDrive(RobotMap._frontLeftMotor, RobotMap._frontRightMotor);
@@ -67,8 +67,8 @@ public class Drivebase extends Subsystem {
   public void DriveWithSpeed() {
 			//double Velocity = RobotMap.standardSpeed;
 			if (OI.DriverLeftBumper()){
-				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput,  0.3 * getJoystickWithDeadBand(OI.DriverRightJoystick()));
-				RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  0.3 * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
+				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
+				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
 			
 			}else{
 				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));

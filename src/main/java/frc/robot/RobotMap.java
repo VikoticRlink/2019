@@ -27,11 +27,9 @@ public class RobotMap {
     //---- General setup ---//
     public static int robotDirection = 1;
     public static double maxSpeed = 0.6;
+    public static double slowSpeed = 0.3;
     public static double encoderPerRev = 4096;
     public static final double kSensorUnitsPerRotation = 4096;
-    public static double slowSpeed = encoderPerRev / 300 * 100;//last number is RPM, converts to encoder ticks
-    public static double standardSpeed = encoderPerRev / 300 * 300;//Ditto
-    public static double turboSpeed = encoderPerRev / 300 * 470;//Ditto
     public static Boolean autoControl;
     
     //--- Settings for Encoders ---//
