@@ -29,7 +29,7 @@ public class HatchHeight extends Command {
     switch (HatchLevel){
     case 0:
       Robot.m_Elevator.Home();
-      if (RobotMap.ElevatorLevels[2] -RobotMap.ElevatorError < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[2]+RobotMap.ElevatorError){HasRan=true;}
+      if (RobotMap.ElevatorLevels[0] -RobotMap.ElevatorError < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[2]+RobotMap.ElevatorError){HasRan=true;}
       break;
     case 1:
       Robot.m_Elevator.Level1();
@@ -37,11 +37,11 @@ public class HatchHeight extends Command {
       break;
     case 2:
       Robot.m_Elevator.Level2();
-      if (RobotMap.ElevatorLevels[3] -RobotMap.ElevatorError < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[3]+RobotMap.ElevatorError){HasRan=true;}
+      if (RobotMap.ElevatorLevels[2] -RobotMap.ElevatorError < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[3]+RobotMap.ElevatorError){HasRan=true;}
       break;
     case 3: 
       Robot.m_Elevator.Level3();
-      if (RobotMap.ElevatorLevels[4] -RobotMap.ElevatorError < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[4]+RobotMap.ElevatorError){HasRan=true;}
+      if (RobotMap.ElevatorLevels[3] -RobotMap.ElevatorError < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorLevels[4]+RobotMap.ElevatorError){HasRan=true;}
       break;
     case 4: 
       Robot.m_Elevator.StartClimb();
