@@ -39,7 +39,7 @@ public class RobotMap {
     public static int[] ElevatorClimb={-1300,8606};//Climb start, Climb End
     public static int ElevatorError = 150;
     //find values for Floor and Climb
-    public static int[] ClimbArmLevels = {0, 2332, 3781}; //Home, Floor, Climb
+    public static int[] ClimbArmLevels = {0, -2332, -3781}; //Home, Floor, Climb
     public static int ClimbError = 300;
 
     //--- Collision Threshold ---//
