@@ -16,8 +16,8 @@ import frc.robot.commands.*;
 
 public class OI {
 	private static XboxController DriverController, OperatorController;
-	final Button DriverStart, DriverBack;
-	final Button OperatorX, OperatorY, OperatorA, OperatorB, OperatorlBump, OperatorrBump, OperatorBack, OperatorStart;
+	private static Button DriverStart, DriverBack;
+	private static Button OperatorX, OperatorY, OperatorA, OperatorB, OperatorlBump, OperatorrBump, OperatorBack, OperatorStart;
 	
 	public OI() {
 		DriverController = new XboxController(0);
@@ -28,20 +28,34 @@ public class OI {
 
 		OperatorController = new XboxController(1);
 		OperatorA= new JoystickButton(OperatorController, 1);
-		OperatorA.whenPressed(new FourBar(true));
 		OperatorB = new JoystickButton(OperatorController, 2);
-		OperatorB.whenPressed(new FourBar(false));
 		OperatorX = new JoystickButton(OperatorController, 3);
-		OperatorX.whenPressed(new HatchEject(true));
 		OperatorY = new JoystickButton(OperatorController, 4);
-		OperatorY.whenPressed(new HatchEject(false));
 		OperatorlBump = new JoystickButton(OperatorController, 5);
 		OperatorrBump = new JoystickButton(OperatorController, 6);
 		OperatorBack = new JoystickButton(OperatorController, 7);
 		OperatorStart = new JoystickButton(OperatorController, 8);
+		OperatorBack.whenPressed(new ToggleControlMode());
 		OperatorStart.whenPressed(new AbortAll());
+
+		computerOI();
 	}
 	
+	public static void manualOI(){
+		OperatorA.whenPressed(new FourBar(true));
+		OperatorB.whenPressed(new FourBar(false));
+		OperatorX.whenPressed(new HatchEject(true));
+		OperatorY.whenPressed(new HatchEject(false));
+
+	}
+
+	public static void computerOI(){
+		OperatorA.whenPressed(new HatchHeight(1));//deploy Hatch level 1
+		OperatorB.whenPressed(new HatchHeight(2));//deploy Hatch level 2
+		OperatorY.whenPressed(new HatchHeight(3));//deploy Hatch level 3
+		OperatorX.whenPressed(new HatchHeight(1));//aquire Hatch
+	}
+
 	//Driver Code
 	public static double DriverLeftJoystick(){
 		return DriverController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);	}

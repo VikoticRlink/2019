@@ -37,6 +37,7 @@ public class Dashboard extends Subsystem {
       SmartDashboard.putNumber("Vision x Offset", RobotMap.visXOffset);
       SmartDashboard.putNumber("Vision Y Offset", RobotMap.visYOffset);
     }
-   
+   //Control Mode
+   SmartDashboard.putBoolean("Manual Mode", RobotMap.controlManualMode);
   }
 }

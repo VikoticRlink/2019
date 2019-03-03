@@ -28,7 +28,7 @@ public class Climber extends Subsystem {
   @Override
   public void periodic() {
 
-      if (!RobotMap.autoControl){
+      if (!RobotMap.controlManualMode){
         RobotMap._climbRightArm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
         RobotMap._climbRightDrive.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
       }

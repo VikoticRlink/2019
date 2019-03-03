@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-//import frc.robot.OI;
+import frc.robot.OI;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 
@@ -30,11 +30,11 @@ public class Elevator extends Subsystem {
   }
   @Override
     public void periodic() {
-        //---Test Code ---//
-      //  if (!RobotMap.autoControl){
-  		//		RobotMap._elevatorMotor.set(ControlMode.PercentOutput, 0.5 * getJoystickWithDeadBand(OI.OperatorRightJoystick()));
-      //  }
-        //--- ---//
+
+        if (!RobotMap.controlManualMode){
+  				RobotMap._elevatorMotor.set(ControlMode.PercentOutput, 0.5 * getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+        }
+
 
     }
     public void Home(){

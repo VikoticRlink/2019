@@ -31,6 +31,7 @@ public class RobotMap {
     public static double encoderPerRev = 4096;
     public static final double kSensorUnitsPerRotation = 4096;
     public static Boolean autoControl;
+    public static Boolean controlManualMode=false;
     
     //--- Settings for Encoders ---//
     //find value for Climb
