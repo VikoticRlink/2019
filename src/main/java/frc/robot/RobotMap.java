@@ -36,7 +36,7 @@ public class RobotMap {
     //--- Settings for Encoders ---//
     //find value for Climb
     //public static int[] ElevatorLevels= {7000, 6798, 300, -4555, -18723}; //Climb, Level1, Home, Level 2, Level 3
-    public static int[] ElevatorLevels= {-500, 8000, -6795, -18723}; //Home, Level1, Level 2, Level 3
+    public static int[] ElevatorLevels= {-500, 8000, -6795, -20800}; //Home, Level1, Level 2, Level 3
     public static int[] ElevatorClimb={-1300,8606};//Climb start, Climb End
     public static int ElevatorError = 150;
     //find values for Floor and Climb
@@ -67,8 +67,7 @@ public class RobotMap {
     public static WPI_TalonSRX _elevatorMotor = new WPI_TalonSRX(3);
     private static WPI_VictorSPX _elevatorSlave = new WPI_VictorSPX(13);
     public static WPI_TalonSRX _climbRightArm = new WPI_TalonSRX(4);
-    private static WPI_TalonSRX _climbLeftArm = new WPI_TalonSRX(14);
-    public static WPI_TalonSRX _climbRightDrive = new WPI_TalonSRX(5);
+    public static WPI_TalonSRX _climbDrive = new WPI_TalonSRX(14);
 
     //--- vision targets ---//
     public static boolean visTargetLock=false;
@@ -97,54 +96,54 @@ public class RobotMap {
       _rearRightMotor.configFactoryDefault();  
       _elevatorMotor.configFactoryDefault();
       _elevatorSlave.configFactoryDefault();
-      _climbLeftArm.configFactoryDefault();
+     // _climbLeftArm.configFactoryDefault();
       _climbRightArm.configFactoryDefault();
-      _climbRightDrive.configFactoryDefault();
+      _climbDrive.configFactoryDefault();
       
       _frontLeftMotor.set(ControlMode.PercentOutput, 0);
       _frontRightMotor.set(ControlMode.PercentOutput, 0);
       _elevatorMotor.set(ControlMode.PercentOutput, 0);
       _climbRightArm.set(ControlMode.PercentOutput, 0);
-      _climbLeftArm.set(ControlMode.PercentOutput, 0);
+      //_climbLeftArm.set(ControlMode.PercentOutput, 0);
       _climbRightArm.set(ControlMode.PercentOutput, 0);
 
       _rearLeftMotor.follow(_frontLeftMotor);
       _rearRightMotor.follow(_frontRightMotor);
       _elevatorSlave.follow(_elevatorMotor);
-      _climbLeftArm.follow(_climbRightArm);
+      //_climbLeftArm.follow(_climbRightArm);
       
       _rearLeftMotor.setInverted(InvertType.FollowMaster);
       _rearRightMotor.setInverted(InvertType.FollowMaster);
       _elevatorSlave.setInverted(InvertType.FollowMaster);
-      _climbLeftArm.setInverted(false);
+      //_climbLeftArm.setInverted(false);
 
       _frontLeftMotor.setNeutralMode(NeutralMode.Brake);
       _frontRightMotor.setNeutralMode(NeutralMode.Brake);
       _elevatorMotor.setNeutralMode(NeutralMode.Brake);
       _climbRightArm.setNeutralMode(NeutralMode.Brake);
-      _climbRightDrive.setNeutralMode(NeutralMode.Brake);
+      _climbDrive.setNeutralMode(NeutralMode.Brake);
      
       _frontLeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
       _frontRightMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
       _elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
       _climbRightArm.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,0, 10);
-      _climbRightDrive.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+      _climbDrive.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
 
       _elevatorMotor.setSelectedSensorPosition(0, 0, 10);
       _frontLeftMotor.setSelectedSensorPosition(0, 0, 10);
       _frontRightMotor.setSelectedSensorPosition(0, 0, 10);
       _climbRightArm.setSelectedSensorPosition(0, 0, 10);
-      _climbRightDrive.setSelectedSensorPosition(0, 0, 10);
+      _climbDrive.setSelectedSensorPosition(0, 0, 10);
 
       _frontLeftMotor.setInverted(false); 
       _frontRightMotor.setInverted(true); 
       _elevatorMotor.setInverted(false);
       _climbRightArm.setInverted(false);
-      _climbRightDrive.setInverted(false);
+      _climbDrive.setInverted(false);
 
       _elevatorMotor.setSensorPhase(true);
       _climbRightArm.setSensorPhase(true);
-      _climbRightDrive.setSensorPhase(true);
+      _climbDrive.setSensorPhase(true);
 
 
       //-- PID setup ---//
@@ -168,14 +167,14 @@ public class RobotMap {
         _climbRightArm.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
         _climbRightArm.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
         
-        _climbRightDrive.configNominalOutputForward(0, Constants.kTimeoutMs);
-        _climbRightDrive.configNominalOutputReverse(0, Constants.kTimeoutMs);
-	    	_climbRightDrive.configPeakOutputForward(1, Constants.kTimeoutMs);
-		    _climbRightDrive.configPeakOutputReverse(-1, Constants.kTimeoutMs);
-        _climbRightDrive.configAllowableClosedloopError(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
-        _climbRightDrive.config_kF(Constants.kPIDLoopIdx, Constants.kGains.kF, Constants.kTimeoutMs);
-        _climbRightDrive.config_kP(Constants.kPIDLoopIdx, Constants.kGains.kP, Constants.kTimeoutMs);
-        _climbRightDrive.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
-        _climbRightDrive.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
+        _climbDrive.configNominalOutputForward(0, Constants.kTimeoutMs);
+        _climbDrive.configNominalOutputReverse(0, Constants.kTimeoutMs);
+	    	_climbDrive.configPeakOutputForward(1, Constants.kTimeoutMs);
+		    _climbDrive.configPeakOutputReverse(-1, Constants.kTimeoutMs);
+        _climbDrive.configAllowableClosedloopError(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+        _climbDrive.config_kF(Constants.kPIDLoopIdx, Constants.kGains.kF, Constants.kTimeoutMs);
+        _climbDrive.config_kP(Constants.kPIDLoopIdx, Constants.kGains.kP, Constants.kTimeoutMs);
+        _climbDrive.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
+        _climbDrive.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
     }
 }

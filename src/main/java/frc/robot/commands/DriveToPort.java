@@ -34,7 +34,7 @@ public class DriveToPort extends Command {
   protected void execute() {
     Robot.m_Drivebase.HitTheTarget();
     //check for collision
-    		double curr_world_linear_accel_x = ahrs.getWorldLinearAccelX();
+    /*		double curr_world_linear_accel_x = ahrs.getWorldLinearAccelX();
         double currentJerkX = curr_world_linear_accel_x - last_world_linear_accel_x;
         last_world_linear_accel_x = curr_world_linear_accel_x;
         double curr_world_linear_accel_y = ahrs.getWorldLinearAccelY();
@@ -47,7 +47,7 @@ public class DriveToPort extends Command {
             OI.OperatorRumbleEnhanced(300, 1, true, true);
             HasRan=true;
     }
-    
+    */
     
   }
 

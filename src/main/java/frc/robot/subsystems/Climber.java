@@ -30,7 +30,7 @@ public class Climber extends Subsystem {
 
       if (!RobotMap.controlManualMode){
         RobotMap._climbRightArm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
-        RobotMap._climbRightDrive.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
+        RobotMap._climbDrive.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
       }
 
   }

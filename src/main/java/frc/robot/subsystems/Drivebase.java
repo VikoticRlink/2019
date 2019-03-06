@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.OI;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.kauailabs.navx.frc.AHRS;
+//import com.kauailabs.navx.frc.AHRS;
 
 /**
  * Add your docs here.
@@ -98,16 +98,16 @@ public class Drivebase extends Subsystem {
 
 	public void HitTheTarget(){
 		if(RobotMap.visXOffset>0.1){
-			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  .15);
-			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, .2);
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.30);
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.4);
 		}
 		if(RobotMap.visXOffset<-0.1){
-			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  .2);
-			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, .15);
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.4);
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.3);
 		}
 		if((RobotMap.visXOffset<0.1)&&(RobotMap.visXOffset>-0.1)){
-			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  .2);
-			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, .2);
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.5);
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.5);
 		}
 
 	}
