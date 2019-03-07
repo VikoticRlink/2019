@@ -15,7 +15,7 @@ public class ClimberTo extends Command {
   int ClimberLevel;
   Boolean HasRan = false;
   public ClimberTo(int Climb) {
-    requires(Robot.m_Elevator);
+    requires(Robot.m_Climber);
     ClimberLevel = Climb;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -42,6 +42,10 @@ public class ClimberTo extends Command {
         Robot.m_Climber.Lift();
         if (RobotMap.ClimbArmLevels[2] - RobotMap.ClimbError < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < RobotMap.ClimbArmLevels[2]+RobotMap.ClimbError){HasRan=true;}
       break;
+      default:
+      Robot.m_Climber.Goto(ClimberLevel);
+      if (ClimberLevel - RobotMap.ClimbError < RobotMap._climbRightArm.getSelectedSensorPosition(0) && RobotMap._climbRightArm.getSelectedSensorPosition(0) < ClimberLevel+RobotMap.ClimbError){HasRan=true;}
+    break;
       }
   }
 

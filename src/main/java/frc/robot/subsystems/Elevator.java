@@ -31,7 +31,7 @@ public class Elevator extends Subsystem {
   @Override
     public void periodic() {
 
-        if (!RobotMap.controlManualMode){
+        if (RobotMap.controlManualMode){
   				RobotMap._elevatorMotor.set(ControlMode.PercentOutput, 0.5 * getJoystickWithDeadBand(OI.OperatorRightJoystick()));
         }
 
@@ -58,7 +58,9 @@ public class Elevator extends Subsystem {
     public void FinishClimb(){
       RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorClimb[1]);
     }
-
+    public void Goto(int Target){
+      RobotMap._elevatorMotor.set(ControlMode.Position, Target);
+    }
 
     private double getJoystickWithDeadBand(double joystickvalue) {
       if (Math.abs(joystickvalue)<.1) {

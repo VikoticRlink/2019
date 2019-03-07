@@ -51,7 +51,10 @@ public class HatchHeight extends Command {
       Robot.m_Elevator.FinishClimb();
       if (RobotMap.ElevatorClimb[1] -RobotMap.ElevatorError < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < RobotMap.ElevatorClimb[1]+RobotMap.ElevatorError){HasRan=true;}
       break;
-
+    default:
+      Robot.m_Elevator.Goto(HatchLevel);
+      if (HatchLevel - RobotMap.ElevatorError < RobotMap._elevatorMotor.getSelectedSensorPosition(0) && RobotMap._elevatorMotor.getSelectedSensorPosition(0) < HatchLevel+RobotMap.ElevatorError){HasRan=true;}
+    break;
     }
     
   }
