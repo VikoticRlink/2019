@@ -49,8 +49,8 @@ public class DriveToPort extends Command {
         
         if ( ( Math.abs(currentJerkX) > RobotMap.kCollisionThreshold_DeltaG ) ||
              ( Math.abs(currentJerkY) > RobotMap.kCollisionThreshold_DeltaG) ) {
-            //OI.DriverRumbleEnhanced(300, 1, true, true);
-            //OI.OperatorRumbleEnhanced(300, 1, true, true);
+            OI.DriverRumbleEnhanced(300, 1, true, true);
+            OI.OperatorRumbleEnhanced(300, 1, true, true);
             HasRan=true;
              }
     
