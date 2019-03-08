@@ -23,8 +23,8 @@ public class OI {
 		DriverController = new XboxController(0);
 		DriverBack = new JoystickButton(DriverController, 7);
 		DriverStart = new JoystickButton(DriverController, 8);
-		//DriverStart.whenPressed(new HatchDeploy(1));
- 		//DriverStart.whenHeld(new HatchDeploy(1)); 
+		DriverBack.whenPressed(new AbortAll());
+		//Driver Left Bump = Slow Speed, value controlled via RobotMap.Slowspeed
 
 		OperatorController = new XboxController(1);
 		OperatorA= new JoystickButton(OperatorController, 1);
@@ -35,27 +35,39 @@ public class OI {
 		OperatorrBump = new JoystickButton(OperatorController, 6);
 		OperatorBack = new JoystickButton(OperatorController, 7);
 		OperatorStart = new JoystickButton(OperatorController, 8);
-		OperatorBack.whenPressed(new ToggleControlMode());
+		OperatorStart.whenPressed(new ToggleControlMode());
+		OperatorBack.whenPressed(new AbortAll());
 
 		computerOI();
 	}
 	
 	public static void manualOI(){
-		OperatorX.whenPressed(new HatchEject(true));
+		//Hatch Pistons In/Out
+		OperatorX.whenPressed(new HatchEject(true));   
 		OperatorX.whenReleased(new HatchEject(false));
-
+		//FourBar in - Out
 		OperatorB.whenPressed(new FourBar(true));
 		OperatorA.whenPressed(new FourBar(false));
+		//Left Operator Stick = Climber (in Climber subsystem)
+		//Right Operator Stick = Elevator (in Elevator subsystem)
 
 	}
 
 	public static void computerOI(){
-		OperatorStart.whenPressed(new AbortAll());
-		 
+		 //test code
 		OperatorA.whenPressed(new HatchHeight(1));//deploy Hatch level 1
 		OperatorB.whenPressed(new HatchHeight(2));//deploy Hatch level 2
 		OperatorY.whenPressed(new HatchHeight(3));//deploy Hatch level 3
 		OperatorX.whenPressed(new HatchHeight(1));//aquire Hatch
+/*Real code
+		OperatorA.whenPressed(new PlaceHatch1());//deploy Hatch level 1
+		OperatorB.whenPressed(new PlaceHatch2());//deploy Hatch level 2
+		OperatorY.whenPressed(new PlaceHatch3());//deploy Hatch level 3
+		OperatorX.whenPressed(new AquireHatch());//aquire Hatch
+*/
+		OperatorlBump.whenPressed(new ClimbHAB2()); //Climb HAB 2
+		OperatorrBump.whenPressed(new ClimbHAB3()); //Climb HAB 3
+
 	}
 
 	//Driver Code
@@ -91,15 +103,6 @@ public class OI {
 	public static void OperatorRumbleEnhanced(int Duration, double intensity, boolean rLeft, boolean rRight) {
 		RumbleEnhanced(OperatorController, Duration, intensity, rLeft, rRight);
 	}
-	
-
-	//----Do not use this section if commands are attached to buttons above -----
-	//public static boolean OperatorRightBumper() {return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);}
-	//public static boolean OperatorLeftBumper() {return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);}
-	//public static boolean OperatorX() {return OperatorController.getXButton();}
-	//public static boolean OperatorY() {return OperatorController.getYButton();}
-	//public static boolean OperatorA() {return OperatorController.getAButton();}
-	//public static boolean OperatorB() {return OperatorController.getBButton();}
 
 private static void RumbleEnhanced(XboxController myController, int Duration, double intensity, boolean rLeft, boolean rRight) {
 	Thread t1 = new Thread(new Runnable() {
