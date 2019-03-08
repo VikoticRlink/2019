@@ -29,28 +29,28 @@ public class Climber extends Subsystem {
   public void periodic() {
 
       if (RobotMap.controlManualMode){
-        RobotMap._climbRightArm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
+        RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
         RobotMap._climbDrive.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
       }
 
   }
   public void Home(){
     if (RobotMap.FourBarOut==true){
-      RobotMap._climbRightArm.set(ControlMode.Position, RobotMap.ClimbArmLevels[0]);
+      RobotMap._climbWorm.set(ControlMode.Position, RobotMap.ClimbArmLevels[0]);
     }
   }
   public void Floor(){
     if (RobotMap.FourBarOut==true){
-      RobotMap._climbRightArm.set(ControlMode.Position, RobotMap.ClimbArmLevels[1]);
+      RobotMap._climbWorm.set(ControlMode.Position, RobotMap.ClimbArmLevels[1]);
     }
   }
   public void Lift(){
     if (RobotMap.FourBarOut==true){
-      RobotMap._climbRightArm.set(ControlMode.Position, RobotMap.ClimbArmLevels[2]);
+      RobotMap._climbWorm.set(ControlMode.Position, RobotMap.ClimbArmLevels[2]);
     }
   }
   public void Goto(int Target){
-    RobotMap._climbRightArm.set(ControlMode.Position, Target);
+    RobotMap._climbWorm.set(ControlMode.Position, Target);
   }
 
   private double getJoystickWithDeadBand(double joystickvalue) {

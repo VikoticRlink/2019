@@ -40,7 +40,7 @@ public class RobotMap {
     public static int[] ElevatorClimb={-1300,8606};//Climb start, Climb End
     public static int ElevatorError = 150;
     //find values for Floor and Climb
-    public static int[] ClimbArmLevels = {0, -2332, -3781}; //Home, Floor, Climb
+    public static int[] ClimbArmLevels = {0, -538000, -538000}; //Home, HAB2, HAB3
     public static int ClimbError = 300;
 
     //--- Collision Threshold ---//
@@ -66,7 +66,7 @@ public class RobotMap {
     private static WPI_VictorSPX _rearRightMotor = new WPI_VictorSPX(12);
     public static WPI_TalonSRX _elevatorMotor = new WPI_TalonSRX(3);
     private static WPI_VictorSPX _elevatorSlave = new WPI_VictorSPX(13);
-    public static WPI_TalonSRX _climbRightArm = new WPI_TalonSRX(4);
+    public static WPI_TalonSRX _climbWorm = new WPI_TalonSRX(4);
     public static WPI_TalonSRX _climbDrive = new WPI_TalonSRX(14);
 
     //--- vision targets ---//
@@ -97,15 +97,15 @@ public class RobotMap {
       _elevatorMotor.configFactoryDefault();
       _elevatorSlave.configFactoryDefault();
      // _climbLeftArm.configFactoryDefault();
-      _climbRightArm.configFactoryDefault();
+     _climbWorm.configFactoryDefault();
       _climbDrive.configFactoryDefault();
       
       _frontLeftMotor.set(ControlMode.PercentOutput, 0);
       _frontRightMotor.set(ControlMode.PercentOutput, 0);
       _elevatorMotor.set(ControlMode.PercentOutput, 0);
-      _climbRightArm.set(ControlMode.PercentOutput, 0);
+      _climbWorm.set(ControlMode.PercentOutput, 0);
       //_climbLeftArm.set(ControlMode.PercentOutput, 0);
-      _climbRightArm.set(ControlMode.PercentOutput, 0);
+      _climbWorm.set(ControlMode.Position, 0);
 
       _rearLeftMotor.follow(_frontLeftMotor);
       _rearRightMotor.follow(_frontRightMotor);
@@ -120,29 +120,27 @@ public class RobotMap {
       _frontLeftMotor.setNeutralMode(NeutralMode.Brake);
       _frontRightMotor.setNeutralMode(NeutralMode.Brake);
       _elevatorMotor.setNeutralMode(NeutralMode.Brake);
-      _climbRightArm.setNeutralMode(NeutralMode.Brake);
+      _climbWorm.setNeutralMode(NeutralMode.Brake);
       _climbDrive.setNeutralMode(NeutralMode.Brake);
      
       _frontLeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
       _frontRightMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
       _elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
-      _climbRightArm.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,0, 10);
+      _climbWorm.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,0, 10);
       _climbDrive.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
 
       _elevatorMotor.setSelectedSensorPosition(0, 0, 10);
       _frontLeftMotor.setSelectedSensorPosition(0, 0, 10);
       _frontRightMotor.setSelectedSensorPosition(0, 0, 10);
-      _climbRightArm.setSelectedSensorPosition(0, 0, 10);
+      _climbWorm.setSelectedSensorPosition(0, 0, 10);
       _climbDrive.setSelectedSensorPosition(0, 0, 10);
 
       _frontLeftMotor.setInverted(false); 
       _frontRightMotor.setInverted(true); 
       _elevatorMotor.setInverted(false);
-      _climbRightArm.setInverted(false);
-      _climbDrive.setInverted(false);
+      _climbWorm.setInverted(false);
 
       _elevatorMotor.setSensorPhase(true);
-      _climbRightArm.setSensorPhase(true);
       _climbDrive.setSensorPhase(true);
 
 
@@ -157,15 +155,15 @@ public class RobotMap {
         _elevatorMotor.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
         _elevatorMotor.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
   
-        _climbRightArm.configNominalOutputForward(0, Constants.kTimeoutMs);
-        _climbRightArm.configNominalOutputReverse(0, Constants.kTimeoutMs);
-	    	_climbRightArm.configPeakOutputForward(1, Constants.kTimeoutMs);
-		    _climbRightArm.configPeakOutputReverse(-1, Constants.kTimeoutMs);
-        _climbRightArm.configAllowableClosedloopError(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
-        _climbRightArm.config_kF(Constants.kPIDLoopIdx, Constants.kGains.kF, Constants.kTimeoutMs);
-        _climbRightArm.config_kP(Constants.kPIDLoopIdx, Constants.kGains.kP, Constants.kTimeoutMs);
-        _climbRightArm.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
-        _climbRightArm.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
+        _climbWorm.configNominalOutputForward(0, Constants.kTimeoutMs);
+        _climbWorm.configNominalOutputReverse(0, Constants.kTimeoutMs);
+	    	_climbWorm.configPeakOutputForward(1, Constants.kTimeoutMs);
+		    _climbWorm.configPeakOutputReverse(-1, Constants.kTimeoutMs);
+        _climbWorm.configAllowableClosedloopError(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+        _climbWorm.config_kF(Constants.kPIDLoopIdx, Constants.kGains.kF, Constants.kTimeoutMs);
+        _climbWorm.config_kP(Constants.kPIDLoopIdx, Constants.kGains.kP, Constants.kTimeoutMs);
+        _climbWorm.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
+        _climbWorm.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
         
         _climbDrive.configNominalOutputForward(0, Constants.kTimeoutMs);
         _climbDrive.configNominalOutputReverse(0, Constants.kTimeoutMs);

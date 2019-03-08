@@ -36,20 +36,21 @@ public class OI {
 		OperatorBack = new JoystickButton(OperatorController, 7);
 		OperatorStart = new JoystickButton(OperatorController, 8);
 		OperatorBack.whenPressed(new ToggleControlMode());
-		OperatorStart.whenPressed(new AbortAll());
 
 		computerOI();
 	}
 	
 	public static void manualOI(){
 		OperatorA.whenPressed(new FourBar(true));
-		OperatorB.whenPressed(new FourBar(false));
+		OperatorA.whenReleased(new FourBar(false));
 		OperatorX.whenPressed(new HatchEject(true));
 		OperatorY.whenPressed(new HatchEject(false));
 
 	}
 
 	public static void computerOI(){
+		OperatorStart.whenPressed(new AbortAll());
+		 
 		OperatorA.whenPressed(new HatchHeight(1));//deploy Hatch level 1
 		OperatorB.whenPressed(new HatchHeight(2));//deploy Hatch level 2
 		OperatorY.whenPressed(new HatchHeight(3));//deploy Hatch level 3

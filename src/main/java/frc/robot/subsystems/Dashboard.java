@@ -29,8 +29,8 @@ public class Dashboard extends Subsystem {
     //Elevator
     SmartDashboard.putNumber("Elevator Position", RobotMap._elevatorMotor.getSelectedSensorPosition(0));
     //Climb Arms
-    SmartDashboard.putNumber("Climb Arm Position", RobotMap._climbRightArm.getSelectedSensorPosition(0));
-    SmartDashboard.putNumber("Climb Arm Speed", RobotMap._elevatorMotor.getSelectedSensorVelocity(0));
+    SmartDashboard.putNumber("Climb Position", RobotMap._climbWorm.getSelectedSensorPosition(0));
+    SmartDashboard.putNumber("Climb Speed", RobotMap._climbDrive.getSelectedSensorPosition(0));
     //Vision Targeting
     SmartDashboard.putBoolean("Target Lock", RobotMap.visTargetLock);
     if (RobotMap.visTargetLock){
