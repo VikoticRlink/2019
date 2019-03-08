@@ -18,10 +18,9 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
  * Add your docs here.
  */
 public class Drivebase extends Subsystem {	
-	//public static AHRS ahrs;
-
-	//double last_world_linear_accel_x;
-	//double last_world_linear_accel_y;
+	
+	double last_world_linear_accel_x;
+	double last_world_linear_accel_y;
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
     //DifferentialDrive MainDrive = new DifferentialDrive(RobotMap._frontLeftMotor, RobotMap._frontRightMotor);
@@ -36,18 +35,7 @@ public class Drivebase extends Subsystem {
   }
   @Override
 	public void periodic() {  
-		/*double curr_world_linear_accel_x = ahrs.getWorldLinearAccelX();
-        double currentJerkX = curr_world_linear_accel_x - last_world_linear_accel_x;
-        last_world_linear_accel_x = curr_world_linear_accel_x;
-        double curr_world_linear_accel_y = ahrs.getWorldLinearAccelY();
-        double currentJerkY = curr_world_linear_accel_y - last_world_linear_accel_y;
-        last_world_linear_accel_y = curr_world_linear_accel_y;
-        
-        if ( ( Math.abs(currentJerkX) > RobotMap.kCollisionThreshold_DeltaG ) ||
-             ( Math.abs(currentJerkY) > RobotMap.kCollisionThreshold_DeltaG) ) {
-            OI.DriverRumbleEnhanced(300, 1, true, true);
-            OI.OperatorRumbleEnhanced(300, 1, true, true);
-		}*/
+	
 		
 		if (!RobotMap.autoControl){
 			DriveWithSpeed();
@@ -97,17 +85,17 @@ public class Drivebase extends Subsystem {
 	}
 
 	public void HitTheTarget(){
-		if(RobotMap.visXOffset>0.1){
-			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.30);
-			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.4);
+		if(RobotMap.visXOffset>0.5){
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.3);
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.5);
 		}
-		if(RobotMap.visXOffset<-0.1){
-			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.4);
+		if(RobotMap.visXOffset<-0.5){
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.5);
 			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.3);
 		}
 		if((RobotMap.visXOffset<0.1)&&(RobotMap.visXOffset>-0.1)){
-			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.5);
-			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.5);
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.6);
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.6);
 		}
 
 	}

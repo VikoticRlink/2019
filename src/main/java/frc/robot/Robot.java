@@ -62,6 +62,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Elevator 3", new HatchHeight(3));
     SmartDashboard.putData("Deploy Fourbar", new FourBar(true));
     SmartDashboard.putData("Retract Fourbar", new FourBar(false));
+    SmartDashboard.putData("Deploy BotFace", new BotFace(true));
+    SmartDashboard.putData("Retract BotFace", new BotFace(false));
+
     SmartDashboard.putData("Deploy pistons", new HatchEject(true));
     SmartDashboard.putData("Retract pistons", new HatchEject(false));
     SmartDashboard.putData("Zero Elevator", new ZeroElevator());
@@ -73,6 +76,10 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("Store All", new StoreAll());
     SmartDashboard.putData("Drive to Port", new DriveToPort());
     SmartDashboard.putData("Ready To Climb", new ReadyToClimb());
+    SmartDashboard.putData("HAB 1-2", new HatchHeight(RobotMap.ElevatorClimb[0]));
+    SmartDashboard.putData("HAB 1-3", new HatchHeight(RobotMap.ElevatorClimb[2]));
+    SmartDashboard.putData("HAB 2-3", new HatchHeight(RobotMap.ElevatorClimb[1]));
+    
     // Remove before going live.
 
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());

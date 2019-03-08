@@ -41,10 +41,11 @@ public class OI {
 	}
 	
 	public static void manualOI(){
-		OperatorA.whenPressed(new FourBar(true));
-		OperatorA.whenReleased(new FourBar(false));
 		OperatorX.whenPressed(new HatchEject(true));
-		OperatorY.whenPressed(new HatchEject(false));
+		OperatorX.whenReleased(new HatchEject(false));
+
+		OperatorB.whenPressed(new FourBar(true));
+		OperatorA.whenPressed(new FourBar(false));
 
 	}
 

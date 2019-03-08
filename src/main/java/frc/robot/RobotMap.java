@@ -37,14 +37,14 @@ public class RobotMap {
     //find value for Climb
     //public static int[] ElevatorLevels= {7000, 6798, 300, -4555, -18723}; //Climb, Level1, Home, Level 2, Level 3
     public static int[] ElevatorLevels= {-500, 8000, -6795, -20800}; //Home, Level1, Level 2, Level 3
-    public static int[] ElevatorClimb={-1300,8606};//Climb start, Climb End
+    public static int[] ElevatorClimb={5590, 1500, -2000};//HAB1-2, HAB2-3, HAB 1-3
     public static int ElevatorError = 150;
     //find values for Floor and Climb
     public static int[] ClimbArmLevels = {0, -538000, -538000}; //Home, HAB2, HAB3
     public static int ClimbError = 300;
 
     //--- Collision Threshold ---//
-    public static double kCollisionThreshold_DeltaG = 0.2f;
+    public static double kCollisionThreshold_DeltaG = 0.30f;
 
     //--- Limit Switches ---//
     public static DigitalInput LimitLowerElevator;

@@ -12,11 +12,11 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.OI;
 import com.kauailabs.navx.frc.AHRS;
+import edu.wpi.first.wpilibj.SPI;
 
 public class DriveToPort extends Command {
   Boolean HasRan = false;
   public static AHRS ahrs;
-
 	double last_world_linear_accel_x;
 	double last_world_linear_accel_y;
   public DriveToPort() {
@@ -27,6 +27,12 @@ public class DriveToPort extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    HasRan=false;
+	 last_world_linear_accel_x=0;
+	 last_world_linear_accel_y=0;
+    try {	ahrs = new AHRS(SPI.Port.kMXP); 
+    } catch (RuntimeException ex ) {
+    }
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -34,7 +40,7 @@ public class DriveToPort extends Command {
   protected void execute() {
     Robot.m_Drivebase.HitTheTarget();
     //check for collision
-    /*		double curr_world_linear_accel_x = ahrs.getWorldLinearAccelX();
+    		double curr_world_linear_accel_x = ahrs.getWorldLinearAccelX();
         double currentJerkX = curr_world_linear_accel_x - last_world_linear_accel_x;
         last_world_linear_accel_x = curr_world_linear_accel_x;
         double curr_world_linear_accel_y = ahrs.getWorldLinearAccelY();
@@ -46,7 +52,7 @@ public class DriveToPort extends Command {
             //OI.DriverRumbleEnhanced(300, 1, true, true);
             //OI.OperatorRumbleEnhanced(300, 1, true, true);
             HasRan=true;
-             }*/
+             }
     
     
   }
