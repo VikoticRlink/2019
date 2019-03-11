@@ -57,25 +57,26 @@ public class Robot extends TimedRobot {
 
 
     // Testing Buttons
-    SmartDashboard.putData("Elevator 1", new HatchHeight(1));
-    SmartDashboard.putData("Elevator 2", new HatchHeight(2));
-    SmartDashboard.putData("Elevator 3", new HatchHeight(3));
-    SmartDashboard.putData("Deploy Fourbar", new FourBar(true));
-    SmartDashboard.putData("Retract Fourbar", new FourBar(false));
-    SmartDashboard.putData("Deploy BotFace", new BotFace(true));
-    SmartDashboard.putData("Retract BotFace", new BotFace(false));
+    //SmartDashboard.putData("Elevator 1", new HatchHeight(1));
+    //SmartDashboard.putData("Elevator 2", new HatchHeight(2));
+    //SmartDashboard.putData("Elevator 3", new HatchHeight(3));
+    //SmartDashboard.putData("Deploy Fourbar", new FourBar(true));
+    //SmartDashboard.putData("Retract Fourbar", new FourBar(false));
+    //SmartDashboard.putData("Deploy BotFace", new BotFace(true));
+    //SmartDashboard.putData("Retract BotFace", new BotFace(false));
 
-    SmartDashboard.putData("Deploy pistons", new HatchEject(true));
-    SmartDashboard.putData("Retract pistons", new HatchEject(false));
+    //SmartDashboard.putData("Deploy pistons", new HatchEject(true));
+    //SmartDashboard.putData("Retract pistons", new HatchEject(false));
     SmartDashboard.putData("Zero Elevator", new ZeroElevator());
-    SmartDashboard.putData("Climber to Home", new ClimberTo(0));
-    SmartDashboard.putData("Climber to Floor", new ClimberTo(1));
+    //SmartDashboard.putData("Climber to Home", new ClimberTo(0));
+    //SmartDashboard.putData("Climber to Floor", new ClimberTo(1));
     SmartDashboard.putData("Climber to Climb", new ClimberTo(2));
     SmartDashboard.putData("Abort Commands", new AbortAll());
     SmartDashboard.putData("Reset after Port", new Reset());
-    SmartDashboard.putData("Store All", new StoreAll());
+    //SmartDashboard.putData("Store All", new StoreAll());
     SmartDashboard.putData("Drive to Port", new DriveToPort());
-    SmartDashboard.putData("Ready To Climb", new ReadyToClimb());
+    SmartDashboard.putData("Drive to Port A", new DriveToPortA());
+    //SmartDashboard.putData("Ready To Climb", new ReadyToClimb());
     SmartDashboard.putData("HAB 1-2", new HatchHeight(RobotMap.ElevatorClimb[0]));
     SmartDashboard.putData("HAB 1-3", new HatchHeight(RobotMap.ElevatorClimb[2]));
     SmartDashboard.putData("HAB 2-3", new HatchHeight(RobotMap.ElevatorClimb[1]));

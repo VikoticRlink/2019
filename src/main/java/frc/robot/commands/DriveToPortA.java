@@ -14,12 +14,12 @@ import frc.robot.OI;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.SPI;
 
-public class DriveToPort extends Command {
+public class DriveToPortA extends Command {
   Boolean HasRan = false;
   public static AHRS ahrs;
 	double last_world_linear_accel_x;
 	double last_world_linear_accel_y;
-  public DriveToPort() {
+  public DriveToPortA() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -38,7 +38,7 @@ public class DriveToPort extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_Drivebase.HitTheTarget();
+    Robot.m_Drivebase.HitTheTargetA();
     //check for collision
     		double curr_world_linear_accel_x = ahrs.getWorldLinearAccelX();
         double currentJerkX = curr_world_linear_accel_x - last_world_linear_accel_x;

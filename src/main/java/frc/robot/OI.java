@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.*;
+import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class OI {
 	private static XboxController DriverController, OperatorController;
@@ -51,6 +52,7 @@ public class OI {
 		//Left Operator Stick = Climber (in Climber subsystem)
 		//Right Operator Stick = Elevator (in Elevator subsystem)
 
+		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(0);
 	}
 
 	public static void computerOI(){
@@ -67,6 +69,7 @@ public class OI {
 */
 		OperatorlBump.whenPressed(new ClimbHAB2()); //Climb HAB 2
 		OperatorrBump.whenPressed(new ClimbHAB3()); //Climb HAB 3
+		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
 
 	}
 
