@@ -13,7 +13,7 @@ public class ClimbHAB3 extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public ClimbHAB3() {
+  public ClimbHAB3() { 
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

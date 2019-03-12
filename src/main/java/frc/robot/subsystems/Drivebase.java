@@ -55,10 +55,13 @@ public class Drivebase extends Subsystem {
   public void DriveWithSpeed() {
 			//double Velocity = RobotMap.standardSpeed;
 			if (OI.DriverLeftBumper()){
+			//	MainDrive.tankDrive(RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()), RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
 				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
 				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
 			
 			}else{
+			//	MainDrive.tankDrive(RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()), RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
+
 				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
 				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
 			}
@@ -85,13 +88,13 @@ public class Drivebase extends Subsystem {
 	}
 
 	public void HitTheTarget(){
-		if(RobotMap.visXOffset>0.5){
-			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.3);
+		if(RobotMap.visXOffset<0.5){
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.4);
 			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.5);
 		}
-		if(RobotMap.visXOffset<-0.5){
+		if(RobotMap.visXOffset>-0.5){
 			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.5);
-			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.3);
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.4);
 		}
 		if((RobotMap.visXOffset<0.1)&&(RobotMap.visXOffset>-0.1)){
 			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.6);

@@ -60,7 +60,9 @@ public class OI {
 		OperatorA.whenPressed(new HatchHeight(1));//deploy Hatch level 1
 		OperatorB.whenPressed(new HatchHeight(2));//deploy Hatch level 2
 		OperatorY.whenPressed(new HatchHeight(3));//deploy Hatch level 3
-		OperatorX.whenPressed(new HatchHeight(1));//aquire Hatch
+		OperatorX.whenPressed(new AquireHatch());//aquire Hatch
+		OperatorX.whenReleased(new AbortAll());
+
 /*Real code
 		OperatorA.whenPressed(new PlaceHatch1());//deploy Hatch level 1
 		OperatorB.whenPressed(new PlaceHatch2());//deploy Hatch level 2

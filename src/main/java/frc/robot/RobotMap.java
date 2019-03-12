@@ -44,7 +44,7 @@ public class RobotMap {
     public static int ClimbError = 300;
 
     //--- Collision Threshold ---//
-    public static double kCollisionThreshold_DeltaG = 0.30f;
+    public static double kCollisionThreshold_DeltaG = 0.4f;
 
     //--- Limit Switches ---//
     public static DigitalInput LimitLowerElevator;

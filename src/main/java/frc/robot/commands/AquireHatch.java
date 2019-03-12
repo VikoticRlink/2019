@@ -19,8 +19,8 @@ public class AquireHatch extends CommandGroup {
     addSequential(new HatchEject(false));
     addSequential(new HatchHeight(1));
     addSequential(new DriveToPort());
-    addSequential(new HatchHeight(RobotMap._elevatorMotor.getSelectedSensorPosition(0)+500));
-    addSequential(new Reset());
+    //addSequential(new HatchHeight(RobotMap._elevatorMotor.getSelectedSensorPosition(0)+500));
+    //addSequential(new Reset());
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
