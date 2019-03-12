@@ -30,7 +30,7 @@ public class RobotMap {
     public static double slowSpeed = 0.3;
     public static double encoderPerRev = 4096;
     public static final double kSensorUnitsPerRotation = 4096;
-    public static Boolean autoControl;
+    public static Boolean autoControl=false;
     public static Boolean controlManualMode=false;
     
     //--- Settings for Encoders ---//

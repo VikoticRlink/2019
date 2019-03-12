@@ -38,7 +38,7 @@ public class DriveToPortA extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_Drivebase.HitTheTargetA();
+  //  Robot.m_Drivebase.HitTheTargetA();
     //check for collision
     		double curr_world_linear_accel_x = ahrs.getWorldLinearAccelX();
         double currentJerkX = curr_world_linear_accel_x - last_world_linear_accel_x;

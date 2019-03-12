@@ -71,6 +71,7 @@ public class OI {
 		OperatorY.whenPressed(new PlaceHatch3());//deploy Hatch level 3
 		OperatorX.whenPressed(new AquireHatch());//aquire Hatch
 */
+		OperatorlBump.whenPressed(new FourBar(true));
 		OperatorrBump.whenPressed(new FinishDeploy()); //Finish Deploy
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
 

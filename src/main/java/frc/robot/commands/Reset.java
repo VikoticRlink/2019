@@ -11,7 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class Reset extends Command {
+public class Reset extends Command {  
+  Boolean HasRan = false;
   public Reset() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -29,12 +30,17 @@ public class Reset extends Command {
   protected void execute() {
     RobotMap._frontRightMotor.setSelectedSensorPosition(0, 0, 10);
      Robot.m_Drivebase.DriveTo(-4000);
+    if(RobotMap._frontRightMotor.getSelectedSensorPosition(0) < -4000 )
+    {
+      HasRan=true;
+      RobotMap.autoControl=false;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return HasRan;
   }
 
   // Called once after isFinished returns true

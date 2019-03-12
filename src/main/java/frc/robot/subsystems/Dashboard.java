@@ -30,7 +30,6 @@ public class Dashboard extends Subsystem {
     SmartDashboard.putNumber("Elevator Position", RobotMap._elevatorMotor.getSelectedSensorPosition(0));
     //Climb Arms
     SmartDashboard.putNumber("Climb Position", RobotMap._climbWorm.getSelectedSensorPosition(0));
-    SmartDashboard.putNumber("Climb Speed", RobotMap._climbDrive.getSelectedSensorPosition(0));
     //Vision Targeting
     SmartDashboard.putBoolean("Target Lock", RobotMap.visTargetLock);
     if (RobotMap.visTargetLock){
@@ -39,5 +38,6 @@ public class Dashboard extends Subsystem {
     }
    //Control Mode
    SmartDashboard.putBoolean("Manual Mode", RobotMap.controlManualMode);
+   SmartDashboard.putBoolean("Auto Mode", RobotMap.autoControl);
   }
 }

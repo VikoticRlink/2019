@@ -23,7 +23,7 @@ public class Drivebase extends Subsystem {
 	double last_world_linear_accel_x;
 	double last_world_linear_accel_y;
 	//Testing Arcade drive for limelight.
-	private DifferentialDrive MainDrive = new DifferentialDrive(RobotMap._frontLeftMotor, RobotMap._frontRightMotor);
+//private DifferentialDrive MainDrive = new DifferentialDrive(RobotMap._frontLeftMotor, RobotMap._frontRightMotor);
 
   @Override
   public void initDefaultCommand() {
@@ -39,10 +39,6 @@ public class Drivebase extends Subsystem {
 		
 		if (!RobotMap.autoControl){
 			DriveWithSpeed();
-		} else {
-			if (RobotMap.visTargetLock){
-				HitTheTarget();
-			}
 		}
   }
     
@@ -101,13 +97,13 @@ public class Drivebase extends Subsystem {
 			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.6);
 		}
 	}
-	public void HitTheTargetA(){
+	/*public void HitTheTargetA(){
 		final double STEER_K = 0.03;                    // how hard to turn toward the target
 		final double DRIVE_K = 0.26;   					// how hard to drive fwd toward the target
 		final double MAX_DRIVE = 0.6;                   // Simple speed limit so we don't drive too fast
 
 		MainDrive.arcadeDrive(MAX_DRIVE * DRIVE_K, RobotMap.visXOffset * STEER_K);
-	}
+	}*/
 
 	private double getJoystickWithDeadBand(double joystickvalue) {
 		if (Math.abs(joystickvalue)<.1) {

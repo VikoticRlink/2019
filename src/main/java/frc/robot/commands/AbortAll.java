@@ -27,7 +27,7 @@ public class AbortAll extends Command {
   @Override
   protected void execute() {
     Scheduler.getInstance().removeAll();
-    RobotMap.autoControl=true;
+    RobotMap.autoControl=false;
     HasRan = true;
   }
 
