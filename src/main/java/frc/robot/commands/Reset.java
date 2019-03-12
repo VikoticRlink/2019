@@ -28,7 +28,7 @@ public class Reset extends Command {
   @Override
   protected void execute() {
     RobotMap._frontRightMotor.setSelectedSensorPosition(0, 0, 10);
-     Robot.m_Drivebase.DriveTo(-8192);
+     Robot.m_Drivebase.DriveTo(-4000);
   }
 
   // Make this return true when this Command no longer needs to run execute()

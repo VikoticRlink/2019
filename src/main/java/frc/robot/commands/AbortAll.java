@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.robot.RobotMap;
 
 public class AbortAll extends Command {
   Boolean HasRan = false;
@@ -26,6 +27,7 @@ public class AbortAll extends Command {
   @Override
   protected void execute() {
     Scheduler.getInstance().removeAll();
+    RobotMap.autoControl=true;
     HasRan = true;
   }
 

@@ -51,6 +51,8 @@ public class OI {
 		OperatorA.whenPressed(new FourBar(false));
 		//Left Operator Stick = Climber (in Climber subsystem)
 		//Right Operator Stick = Elevator (in Elevator subsystem)
+		OperatorlBump.whenPressed(new ClimbHAB2()); //Climb HAB 2
+		OperatorrBump.whenPressed(new ClimbHAB3()); //Climb HAB 3
 
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(0);
 	}
@@ -61,7 +63,7 @@ public class OI {
 		OperatorB.whenPressed(new HatchHeight(2));//deploy Hatch level 2
 		OperatorY.whenPressed(new HatchHeight(3));//deploy Hatch level 3
 		OperatorX.whenPressed(new AquireHatch());//aquire Hatch
-		OperatorX.whenReleased(new AbortAll());
+		OperatorX.whenReleased(new FinishGet());
 
 /*Real code
 		OperatorA.whenPressed(new PlaceHatch1());//deploy Hatch level 1
@@ -69,8 +71,7 @@ public class OI {
 		OperatorY.whenPressed(new PlaceHatch3());//deploy Hatch level 3
 		OperatorX.whenPressed(new AquireHatch());//aquire Hatch
 */
-		OperatorlBump.whenPressed(new ClimbHAB2()); //Climb HAB 2
-		OperatorrBump.whenPressed(new ClimbHAB3()); //Climb HAB 3
+		OperatorrBump.whenPressed(new FinishDeploy()); //Finish Deploy
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
 
 	}

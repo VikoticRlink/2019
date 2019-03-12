@@ -10,18 +10,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.RobotMap;
 
-public class AquireHatch extends CommandGroup {
+public class FinishGet extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public AquireHatch() {
-    RobotMap.autoControl=true;
-    addSequential(new FourBar(true));
-    addSequential(new HatchEject(false));
-    addSequential(new HatchHeight(1));
-    addSequential(new DriveToPort());
-    //addSequential(new HatchHeight(RobotMap._elevatorMotor.getSelectedSensorPosition(0)+500));
-    //addSequential(new Reset());
+  public FinishGet() {
+    addSequential(new AbortAll());
+    addSequential(new HatchHeight(RobotMap._elevatorMotor.getSelectedSensorPosition(0)+500));
+    addSequential(new Reset());
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
