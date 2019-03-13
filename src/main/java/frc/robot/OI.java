@@ -59,18 +59,11 @@ public class OI {
 
 	public static void computerOI(){
 		 //test code
-		OperatorA.whenPressed(new HatchHeight(1));//deploy Hatch level 1
-		OperatorB.whenPressed(new HatchHeight(2));//deploy Hatch level 2
-		OperatorY.whenPressed(new HatchHeight(3));//deploy Hatch level 3
-		OperatorX.whenPressed(new AquireHatch());//aquire Hatch
-		OperatorX.whenReleased(new FinishGet());
-
-/*Real code
 		OperatorA.whenPressed(new PlaceHatch1());//deploy Hatch level 1
 		OperatorB.whenPressed(new PlaceHatch2());//deploy Hatch level 2
 		OperatorY.whenPressed(new PlaceHatch3());//deploy Hatch level 3
 		OperatorX.whenPressed(new AquireHatch());//aquire Hatch
-*/
+		OperatorX.whenReleased(new FinishGet());
 		OperatorlBump.whenPressed(new FourBar(true));
 		OperatorrBump.whenPressed(new FinishDeploy()); //Finish Deploy
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);

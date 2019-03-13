@@ -18,9 +18,6 @@ public class PlaceHatch3 extends CommandGroup {
     addSequential(new HatchEject(false));
     addSequential(new HatchHeight(3));
     addSequential(new DriveToPort());
-    addSequential(new HatchEject(true));
-    addSequential(new Reset());
-    addSequential(new HatchEject(false));
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
