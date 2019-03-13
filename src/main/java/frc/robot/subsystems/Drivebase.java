@@ -84,6 +84,9 @@ public class Drivebase extends Subsystem {
 	}
 
 	public void HitTheTarget(){
+		
+		RobotMap.autoControl=true;
+		
 		if(RobotMap.visXOffset<0.5){
 			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.4);
 			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.5);

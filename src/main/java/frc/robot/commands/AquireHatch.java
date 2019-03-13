@@ -15,7 +15,6 @@ public class AquireHatch extends CommandGroup {
    * Add your docs here.
    */
   public AquireHatch() {
-    RobotMap.autoControl=true;
     addSequential(new FourBar(true));
     addSequential(new HatchEject(false));
     addSequential(new HatchHeight(1));
