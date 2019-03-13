@@ -14,9 +14,9 @@ public class PlaceHatch2 extends CommandGroup {
    * Add your docs here.
    */
   public PlaceHatch2() {
-    addSequential(new FourBar(true));
-    addSequential(new HatchEject(false));
-    addSequential(new HatchHeight(2));
+    addParallel(new FourBar(true));
+    addParallel(new HatchEject(false));
+    addParallel(new HatchHeight(2));
     addSequential(new DriveToPort());
     // Add Commands here:
     // e.g. addSequential(new Command1());

@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.RobotMap;
 
 public class ZeroElevator extends Command {
+  Boolean HasRan = false;
   public ZeroElevator() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -24,14 +25,14 @@ public class ZeroElevator extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    
     RobotMap._elevatorMotor.setSelectedSensorPosition(0, 0, 10);
+    HasRan=true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return HasRan;
   }
 
   // Called once after isFinished returns true

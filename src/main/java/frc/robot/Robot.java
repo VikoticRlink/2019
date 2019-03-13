@@ -14,20 +14,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.*;
-//import frc.robot.commands.*;
 import frc.robot.subsystems.*;
-//import edu.wpi.first.networktables.NetworkTable;
-//import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
-
-/**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the TimedRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the build.gradle file in the
- * project.
- */
 public class Robot extends TimedRobot {
   public static Climber m_Climber;
   public static Dashboard m_Dashboard;
@@ -40,10 +29,6 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-  /**
-   * This function is run when the robot is first started up and should be
-   * used for any initialization code.
-   */
   @Override
   public void robotInit() {
     RobotMap.init();
@@ -54,52 +39,40 @@ public class Robot extends TimedRobot {
     m_Pneumatics = new Pneumatics();
     m_Vision = new Vision();
     m_oi = new OI();
-
-
-    // Testing Buttons
-    //SmartDashboard.putData("Elevator 1", new HatchHeight(1));
-    //SmartDashboard.putData("Elevator 2", new HatchHeight(2));
-    //SmartDashboard.putData("Elevator 3", new HatchHeight(3));
-    SmartDashboard.putData("Deploy Fourbar", new FourBar(true));
-    SmartDashboard.putData("Retract Fourbar", new FourBar(false));
-    //SmartDashboard.putData("Deploy BotFace", new BotFace(true));
-    //SmartDashboard.putData("Retract BotFace", new BotFace(false));
-
-    SmartDashboard.putData("Deploy pistons", new HatchEject(true));
-    SmartDashboard.putData("Retract pistons", new HatchEject(false));
-    SmartDashboard.putData("Zero Elevator", new ZeroElevator());
-    //SmartDashboard.putData("Climber to Home", new ClimberTo(0));
-    //SmartDashboard.putData("Climber to Floor", new ClimberTo(1));
-    SmartDashboard.putData("Climber to Climb", new ClimberTo(2));
-    SmartDashboard.putData("Abort Commands", new AbortAll());
-    SmartDashboard.putData("Reset after Port", new Reset());
-    //SmartDashboard.putData("Store All", new StoreAll());
-    SmartDashboard.putData("Drive to Port", new DriveToPort());
-    //SmartDashboard.putData("Drive to Port A", new DriveToPortA());
-    //SmartDashboard.putData("Ready To Climb", new ReadyToClimb());
-    SmartDashboard.putData("HAB 1-2", new HatchHeight(RobotMap.ElevatorClimb[0]));
-    SmartDashboard.putData("HAB 1-3", new HatchHeight(RobotMap.ElevatorClimb[2]));
-    SmartDashboard.putData("HAB 2-3", new HatchHeight(RobotMap.ElevatorClimb[1]));
+    //Set pneumatics to "start" positions
+    m_Pneumatics.FourBarStore();
+    m_Pneumatics.PistonStore();
     
+    // Testing Buttons
+        //SmartDashboard.putData("Elevator 1", new HatchHeight(1));
+        //SmartDashboard.putData("Elevator 2", new HatchHeight(2));
+        //SmartDashboard.putData("Elevator 3", new HatchHeight(3));
+        SmartDashboard.putData("Deploy Fourbar", new FourBar(true));
+        SmartDashboard.putData("Retract Fourbar", new FourBar(false));
+        //SmartDashboard.putData("Deploy BotFace", new BotFace(true));
+        //SmartDashboard.putData("Retract BotFace", new BotFace(false));
+        SmartDashboard.putData("Deploy pistons", new HatchEject(true));
+        SmartDashboard.putData("Retract pistons", new HatchEject(false));
+        SmartDashboard.putData("Zero Elevator", new ZeroElevator());
+        //SmartDashboard.putData("Climber to Home", new ClimberTo(0));
+        //SmartDashboard.putData("Climber to Floor", new ClimberTo(1));
+        //SmartDashboard.putData("Climber to Climb", new ClimberTo(2));
+        SmartDashboard.putData("Abort Commands", new AbortAll());
+        SmartDashboard.putData("Reset after Port", new Reset());
+        //SmartDashboard.putData("Store All", new StoreAll());
+        SmartDashboard.putData("Drive to Port", new DriveToPort());
+        //SmartDashboard.putData("Drive to Port A", new DriveToPortA());
+        //SmartDashboard.putData("Ready To Climb", new ReadyToClimb());
+        SmartDashboard.putData("HAB 1-2", new HatchHeight(RobotMap.ElevatorClimb[0]));
+        SmartDashboard.putData("HAB 1-3", new HatchHeight(RobotMap.ElevatorClimb[2]));
+        SmartDashboard.putData("HAB 2-3", new HatchHeight(RobotMap.ElevatorClimb[1]));
     // Remove before going live.
 
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
-
-
-    m_Pneumatics.FourBarStore();
-    m_Pneumatics.PistonStore();
+    //SmartDashboard.putData("Auto mode", m_chooser);
   }
 
-  /**
-   * This function is called every robot packet, no matter the mode. Use
-   * this for items like diagnostics that you want ran during disabled,
-   * autonomous, teleoperated and test.
-   *
-   * <p>This runs after the mode specific periodic functions, but before
-   * LiveWindow and SmartDashboard integrated updating.
-   */
   @Override
   public void robotPeriodic() {
     
@@ -121,17 +94,6 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();
   }
 
-  /**
-   * This autonomous (along with the chooser code above) shows how to select
-   * between different autonomous modes using the dashboard. The sendable
-   * chooser code works with the Java SmartDashboard. If you prefer the
-   * LabVIEW Dashboard, remove all of the chooser code and uncomment the
-   * getString code to get the auto name from the text box below the Gyro
-   *
-   * <p>You can add additional auto modes by adding additional commands to the
-   * chooser code above (like the commented example) or additional comparisons
-   * to the switch structure below with additional strings & commands.
-   */
   @Override
   public void autonomousInit() {
     m_autonomousCommand = m_chooser.getSelected();
@@ -173,7 +135,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-
     Scheduler.getInstance().run();
   }
 

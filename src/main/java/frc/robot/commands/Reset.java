@@ -29,11 +29,11 @@ public class Reset extends Command {
   @Override
   protected void execute() {
     RobotMap._frontRightMotor.setSelectedSensorPosition(0, 0, 10);
-     Robot.m_Drivebase.DriveTo(-4000);
-    if(RobotMap._frontRightMotor.getSelectedSensorPosition(0) < -4000 )
+     //Robot.m_Drivebase.DriveTo(-4000);
+    if(Robot.m_Drivebase.DriveTo(-4000))
     {
-      HasRan=true;
       RobotMap.autoControl=false;
+      HasRan=true;
     }
   }
 

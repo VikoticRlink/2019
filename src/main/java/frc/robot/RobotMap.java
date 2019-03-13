@@ -79,7 +79,6 @@ public class RobotMap {
 
       //--- Limit Switches ---//
       LimitLowerElevator = new DigitalInput(0);
-
       LimitLower2Elevator = new DigitalInput(1);
       LimitUpperElevator = new DigitalInput(2);
       LimitUpper2Elevator = new DigitalInput(3);
@@ -96,7 +95,6 @@ public class RobotMap {
       _rearRightMotor.configFactoryDefault();  
       _elevatorMotor.configFactoryDefault();
       _elevatorSlave.configFactoryDefault();
-     // _climbLeftArm.configFactoryDefault();
      _climbWorm.configFactoryDefault();
       _climbDrive.configFactoryDefault();
       
@@ -104,18 +102,15 @@ public class RobotMap {
       _frontRightMotor.set(ControlMode.PercentOutput, 0);
       _elevatorMotor.set(ControlMode.PercentOutput, 0);
       _climbWorm.set(ControlMode.PercentOutput, 0);
-      //_climbLeftArm.set(ControlMode.PercentOutput, 0);
       _climbWorm.set(ControlMode.Position, 0);
 
       _rearLeftMotor.follow(_frontLeftMotor);
       _rearRightMotor.follow(_frontRightMotor);
       _elevatorSlave.follow(_elevatorMotor);
-      //_climbLeftArm.follow(_climbRightArm);
       
       _rearLeftMotor.setInverted(InvertType.FollowMaster);
       _rearRightMotor.setInverted(InvertType.FollowMaster);
       _elevatorSlave.setInverted(InvertType.FollowMaster);
-      //_climbLeftArm.setInverted(false);
 
       _frontLeftMotor.setNeutralMode(NeutralMode.Brake);
       _frontRightMotor.setNeutralMode(NeutralMode.Brake);

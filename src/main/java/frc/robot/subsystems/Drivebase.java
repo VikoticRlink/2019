@@ -8,7 +8,6 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 //import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 import frc.robot.OI;
@@ -23,7 +22,7 @@ public class Drivebase extends Subsystem {
 	double last_world_linear_accel_x;
 	double last_world_linear_accel_y;
 	//Testing Arcade drive for limelight.
-//private DifferentialDrive MainDrive = new DifferentialDrive(RobotMap._frontLeftMotor, RobotMap._frontRightMotor);
+	//private DifferentialDrive MainDrive = new DifferentialDrive(RobotMap._frontLeftMotor, RobotMap._frontRightMotor);
 
   @Override
   public void initDefaultCommand() {
@@ -35,29 +34,24 @@ public class Drivebase extends Subsystem {
   }
   @Override
 	public void periodic() {  
-	
-		
 		if (!RobotMap.autoControl){
 			DriveWithSpeed();
 		}
   }
     
   public void Stop() {
-		//MainDrive.tankDrive(0, 0);
+	//	MainDrive.tankDrive(0, 0);
 	//	RobotMap._frontLeftMotor.set(0);
 	//	RobotMap._frontRightMotor.set(0);
   }
 
   public void DriveWithSpeed() {
-			//double Velocity = RobotMap.standardSpeed;
 			if (OI.DriverLeftBumper()){
 			//	MainDrive.tankDrive(RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()), RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
 				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
 				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
-			
 			}else{
 			//	MainDrive.tankDrive(RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()), RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
-
 				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
 				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
 			}
@@ -87,7 +81,21 @@ public class Drivebase extends Subsystem {
 		
 		RobotMap.autoControl=true;
 		
-		if(RobotMap.visXOffset<0.5){
+		if (Math.abs(RobotMap.visXOffset)<0.1){
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.6);
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.6);
+		}else{
+			if(RobotMap.visXOffset>0){
+				RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.4);
+				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.5);
+			}else{
+				RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.5);
+				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.4);
+			}
+		}
+
+		//old drive code
+		/*if(RobotMap.visXOffset<0.5){
 			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.4);
 			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.5);
 		}
@@ -98,7 +106,7 @@ public class Drivebase extends Subsystem {
 		if((RobotMap.visXOffset<0.1)&&(RobotMap.visXOffset>-0.1)){
 			RobotMap._frontRightMotor.set(ControlMode.PercentOutput,  -0.6);
 			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.6);
-		}
+		}*/
 	}
 	/*public void HitTheTargetA(){
 		final double STEER_K = 0.03;                    // how hard to turn toward the target

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class FinishDeploy extends CommandGroup {
   /**
-   * Add your docs here.
+   * Abort all running commands, hatch pistons out, backup, hatch pistons in.
    */
   public FinishDeploy() {
     addSequential(new AbortAll());

@@ -34,8 +34,6 @@ public class Elevator extends Subsystem {
         if (RobotMap.controlManualMode){
   				RobotMap._elevatorMotor.set(ControlMode.PercentOutput, 0.5 * getJoystickWithDeadBand(OI.OperatorRightJoystick()));
         }
-
-
     }
     public void Home(){
       RobotMap._elevatorMotor.set(ControlMode.Position, RobotMap.ElevatorLevels[0]);

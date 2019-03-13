@@ -24,6 +24,7 @@ public class OI {
 		DriverController = new XboxController(0);
 		DriverBack = new JoystickButton(DriverController, 7);
 		DriverStart = new JoystickButton(DriverController, 8);
+		DriverStart.whenPressed(new AbortAll());
 		DriverBack.whenPressed(new AbortAll());
 		//Driver Left Bump = Slow Speed, value controlled via RobotMap.Slowspeed
 
@@ -36,6 +37,7 @@ public class OI {
 		OperatorrBump = new JoystickButton(OperatorController, 6);
 		OperatorBack = new JoystickButton(OperatorController, 7);
 		OperatorStart = new JoystickButton(OperatorController, 8);
+
 		OperatorStart.whenPressed(new ToggleControlMode());
 		OperatorBack.whenPressed(new AbortAll());
 
@@ -59,15 +61,15 @@ public class OI {
 
 	public static void computerOI(){
 		 //test code
-		OperatorA.whenPressed(new PlaceHatch1());//deploy Hatch level 1
-		OperatorB.whenPressed(new PlaceHatch2());//deploy Hatch level 2
-		OperatorY.whenPressed(new PlaceHatch3());//deploy Hatch level 3
-		OperatorX.whenPressed(new AquireHatch());//aquire Hatch
+		OperatorA.whenPressed(new PlaceHatch1()); //deploy Hatch level 1
+		OperatorB.whenPressed(new PlaceHatch2()); //deploy Hatch level 2
+		OperatorY.whenPressed(new PlaceHatch3()); //deploy Hatch level 3
+		OperatorX.whenPressed(new AquireHatch()); //aquire Hatch
 		OperatorX.whenReleased(new FinishGet());
 		OperatorlBump.whenPressed(new FourBar(true));
 		OperatorrBump.whenPressed(new FinishDeploy()); //Finish Deploy
-		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
 
+		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
 	}
 
 	//Driver Code
