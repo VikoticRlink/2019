@@ -62,13 +62,13 @@ public class Elevator extends Subsystem {
 
     private double getJoystickWithDeadBand(double joystickvalue) {
       if (Math.abs(joystickvalue)<.1) {
-        return 0 * RobotMap.robotDirection;
+        return -0.1;
       } else if (joystickvalue > .9) {
-        return 1 * RobotMap.robotDirection;
+        return 1;
       }else if (joystickvalue < -0.9) {
-        return -1 * RobotMap.robotDirection;
+        return -1;
       } else {
-        return joystickvalue * RobotMap.robotDirection;
+        return joystickvalue;
       }
     }
 }

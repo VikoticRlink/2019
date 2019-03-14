@@ -26,7 +26,7 @@ public class Dashboard extends Subsystem {
     //Drive System
     SmartDashboard.putNumber("Right Speed", RobotMap._frontLeftMotor.getSelectedSensorVelocity(0));
     SmartDashboard.putNumber("Left Speed", RobotMap._frontRightMotor.getSelectedSensorVelocity(0));
-    SmartDashboard.putNumber("Right position", RobotMap._frontRightMotor.getSelectedSensorPosition(0));
+    //SmartDashboard.putNumber("Right position", RobotMap._frontRightMotor.getSelectedSensorPosition(0));
     //Elevator
     SmartDashboard.putNumber("Elevator Position", RobotMap._elevatorMotor.getSelectedSensorPosition(0));
     //Climb Arms
