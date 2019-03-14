@@ -1,0 +1,92 @@
+<xml version="1.0">
+<dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.ConnectionIndicator">
+		<location x="3" y="106"/>
+		<width>242</width>
+	</static-widget>
+	<widget field="Target Lock" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="2" y="0"/>
+		<width>116</width>
+		<height>85</height>
+	</widget>
+	<widget field="Auto Mode" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="393" y="546"/>
+	</widget>
+	<widget field="HAB 2-3" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="10" y="627"/>
+	</widget>
+	<widget field="HAB 1-3" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="12" y="597"/>
+	</widget>
+	<widget field="HAB 1-2" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="13" y="569"/>
+	</widget>
+	<widget field="Vision Y Offset" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="20" y="338"/>
+	</widget>
+	<widget field="Vision x Offset" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="23" y="310"/>
+	</widget>
+	<widget field="Limelight_Stream" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="946" y="606"/>
+		<width>216</width>
+	</widget>
+	<widget field="Limelight_Interface" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="948" y="585"/>
+		<width>218</width>
+	</widget>
+	<widget field="Limelight_PipelineName" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="928" y="559"/>
+	</widget>
+	<widget field="Climb Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="1185" y="580"/>
+	</widget>
+	<widget field="Abort Commands" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="15" y="461"/>
+	</widget>
+	<widget field="Retract pistons" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="327" y="627"/>
+	</widget>
+	<widget field="Retract Fourbar" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="148" y="633"/>
+	</widget>
+	<widget field="Deploy pistons" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="333" y="597"/>
+	</widget>
+	<widget field="Zero Elevator" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="34" y="429"/>
+	</widget>
+	<widget field="Deploy Fourbar" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="148" y="594"/>
+	</widget>
+	<widget field="Drive to Port" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="730" y="571"/>
+	</widget>
+	<widget field="Reset after Port" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="712" y="599"/>
+	</widget>
+	<widget field="Manual Mode" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="130" y="1"/>
+		<width>117</width>
+		<height>83</height>
+	</widget>
+	<widget field="Left Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="1207" y="637"/>
+	</widget>
+	<widget field="Right Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="1202" y="661"/>
+		<height>22</height>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.MjpgStreamViewerImpl">
+		<location x="249" y="-6"/>
+		<width>1116</width>
+		<height>524</height>
+		<property name="MJPG Server URL" value="http://10.59.20.11:5800/"/>
+	</static-widget>
+	<widget field="Elevator Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="1175" y="556"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
