@@ -145,29 +145,29 @@ public class RobotMap {
 	    	_elevatorMotor.configPeakOutputForward(1, Constants.kTimeoutMs);
 		    _elevatorMotor.configPeakOutputReverse(-1, Constants.kTimeoutMs);
         _elevatorMotor.configAllowableClosedloopError(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
-        _elevatorMotor.config_kF(Constants.kPIDLoopIdx, Constants.kGains.kF, Constants.kTimeoutMs);
-        _elevatorMotor.config_kP(Constants.kPIDLoopIdx, Constants.kGains.kP, Constants.kTimeoutMs);
-        _elevatorMotor.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
-        _elevatorMotor.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
+        _elevatorMotor.config_kF(Constants.kPIDLoopIdx, Constants.kElevatorGains.kF, Constants.kTimeoutMs);
+        _elevatorMotor.config_kP(Constants.kPIDLoopIdx, Constants.kElevatorGains.kP, Constants.kTimeoutMs);
+        _elevatorMotor.config_kI(Constants.kPIDLoopIdx, Constants.kElevatorGains.kI, Constants.kTimeoutMs);
+        _elevatorMotor.config_kD(Constants.kPIDLoopIdx, Constants.kElevatorGains.kD, Constants.kTimeoutMs);
   
         _climbWorm.configNominalOutputForward(0, Constants.kTimeoutMs);
         _climbWorm.configNominalOutputReverse(0, Constants.kTimeoutMs);
 	    	_climbWorm.configPeakOutputForward(1, Constants.kTimeoutMs);
 		    _climbWorm.configPeakOutputReverse(-1, Constants.kTimeoutMs);
         _climbWorm.configAllowableClosedloopError(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
-        _climbWorm.config_kF(Constants.kPIDLoopIdx, Constants.kGains.kF, Constants.kTimeoutMs);
-        _climbWorm.config_kP(Constants.kPIDLoopIdx, Constants.kGains.kP, Constants.kTimeoutMs);
-        _climbWorm.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
-        _climbWorm.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
+        _climbWorm.config_kF(Constants.kPIDLoopIdx, Constants.kWormGains.kF, Constants.kTimeoutMs);
+        _climbWorm.config_kP(Constants.kPIDLoopIdx, Constants.kWormGains.kP, Constants.kTimeoutMs);
+        _climbWorm.config_kI(Constants.kPIDLoopIdx, Constants.kWormGains.kI, Constants.kTimeoutMs);
+        _climbWorm.config_kD(Constants.kPIDLoopIdx, Constants.kWormGains.kD, Constants.kTimeoutMs);
         
         _climbDrive.configNominalOutputForward(0, Constants.kTimeoutMs);
         _climbDrive.configNominalOutputReverse(0, Constants.kTimeoutMs);
 	    	_climbDrive.configPeakOutputForward(1, Constants.kTimeoutMs);
 		    _climbDrive.configPeakOutputReverse(-1, Constants.kTimeoutMs);
         _climbDrive.configAllowableClosedloopError(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
-        _climbDrive.config_kF(Constants.kPIDLoopIdx, Constants.kGains.kF, Constants.kTimeoutMs);
-        _climbDrive.config_kP(Constants.kPIDLoopIdx, Constants.kGains.kP, Constants.kTimeoutMs);
-        _climbDrive.config_kI(Constants.kPIDLoopIdx, Constants.kGains.kI, Constants.kTimeoutMs);
-        _climbDrive.config_kD(Constants.kPIDLoopIdx, Constants.kGains.kD, Constants.kTimeoutMs);
+        _climbDrive.config_kF(Constants.kPIDLoopIdx, Constants.kClimbDriveGains.kF, Constants.kTimeoutMs);
+        _climbDrive.config_kP(Constants.kPIDLoopIdx, Constants.kClimbDriveGains.kP, Constants.kTimeoutMs);
+        _climbDrive.config_kI(Constants.kPIDLoopIdx, Constants.kClimbDriveGains.kI, Constants.kTimeoutMs);
+        _climbDrive.config_kD(Constants.kPIDLoopIdx, Constants.kClimbDriveGains.kD, Constants.kTimeoutMs);
     }
 }
