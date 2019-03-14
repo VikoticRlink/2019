@@ -62,8 +62,11 @@ public class OI {
 	public static void computerOI(){
 		 //test code
 		OperatorA.whenPressed(new PlaceHatch1()); //deploy Hatch level 1
+		OperatorA.whenReleased(new FinishDeploy());
 		OperatorB.whenPressed(new PlaceHatch2()); //deploy Hatch level 2
+		OperatorB.whenReleased(new FinishDeploy());
 		OperatorY.whenPressed(new PlaceHatch3()); //deploy Hatch level 3
+		OperatorY.whenReleased(new FinishDeploy());
 		OperatorX.whenPressed(new AquireHatch()); //aquire Hatch
 		OperatorX.whenReleased(new FinishGet());
 		OperatorlBump.whenPressed(new FourBar(true));
