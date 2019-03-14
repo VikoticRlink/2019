@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.*;
+
+
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class OI {
@@ -45,7 +47,7 @@ public class OI {
 	}
 	
 	public static void manualOI(){
-		//Hatch Pistons In/Out
+	/*	//Hatch Pistons In/Out
 		OperatorX.whenPressed(new HatchEject(true));   
 		OperatorX.whenReleased(new HatchEject(false));
 		//FourBar in - Out
@@ -54,7 +56,7 @@ public class OI {
 		//Left Operator Stick = Climber (in Climber subsystem)
 		//Right Operator Stick = Elevator (in Elevator subsystem)
 		OperatorlBump.whenPressed(new ClimbHAB2()); //Climb HAB 2
-		OperatorrBump.whenPressed(new ClimbHAB3()); //Climb HAB 3
+		OperatorrBump.whenPressed(new ClimbHAB3()); //Climb HAB 3*/
 
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(0);
 	}
@@ -62,15 +64,16 @@ public class OI {
 	public static void computerOI(){
 		 //test code
 		OperatorA.whenPressed(new PlaceHatch1()); //deploy Hatch level 1
-		OperatorA.whenReleased(new FinishDeploy());
+		OperatorA.whenReleased(new AbortAll());
 		OperatorB.whenPressed(new PlaceHatch2()); //deploy Hatch level 2
-		OperatorB.whenReleased(new FinishDeploy());
+		OperatorB.whenReleased(new AbortAll());
 		OperatorY.whenPressed(new PlaceHatch3()); //deploy Hatch level 3
-		OperatorY.whenReleased(new FinishDeploy());
+		OperatorY.whenReleased(new AbortAll());
 		OperatorX.whenPressed(new AquireHatch()); //aquire Hatch
 		OperatorX.whenReleased(new FinishGet());
 		OperatorlBump.whenPressed(new FourBar(true));
 		OperatorrBump.whenPressed(new FinishDeploy()); //Finish Deploy
+		OperatorrBump.whenReleased(new HatchEject(false));
 
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
 	}

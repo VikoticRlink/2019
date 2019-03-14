@@ -41,8 +41,8 @@ public class Drivebase extends Subsystem {
     
   public void Stop() {
 	//	MainDrive.tankDrive(0, 0);
-	//	RobotMap._frontLeftMotor.set(0);
-	//	RobotMap._frontRightMotor.set(0);
+	RobotMap._frontLeftMotor.set(0);
+	RobotMap._frontRightMotor.set(0);
   }
 
   public void DriveWithSpeed() {
@@ -57,7 +57,7 @@ public class Drivebase extends Subsystem {
 			}
 	}
 
-	public boolean DriveTo(int tickLocation){
+/*	public boolean DriveTo(int tickLocation){
 		if (tickLocation>0){
 			if (tickLocation >= RobotMap._frontRightMotor.getSelectedSensorPosition(0)){
 				return true;
@@ -75,8 +75,16 @@ public class Drivebase extends Subsystem {
 				return false;
 			}
 		}
+	}*/
+	public void DriveTo(int tickLocation){
+		if (tickLocation>0){
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, -0.6);
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput, -0.6);
+		}else{
+			RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, 0.6);
+			RobotMap._frontRightMotor.set(ControlMode.PercentOutput, 0.6);
+		}
 	}
-
 	public void HitTheTarget(){
 		
 		RobotMap.autoControl=true;

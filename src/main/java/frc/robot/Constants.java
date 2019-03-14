@@ -44,7 +44,7 @@ public class Constants {
 
 	 //http://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html
 	static final Gains kGains = new Gains(0.15, 0.0, 1.0, 0.0, 0, 1.0);
-	static final Gains kElevatorGains = new Gains(0.10, 0.0, 1.0, 0.0, 0, 1.0);
+	static final Gains kElevatorGains = new Gains(0.08, 0.0, 1.0, 0.0, 0, 1.0);
 	static final Gains kWormGains = new Gains(0.15, 0.0, 1.0, 0.0, 0, 1.0);
 	static final Gains kClimbDriveGains = new Gains(0.15, 0.0, 1.0, 0.0, 0, 1.0);
 }

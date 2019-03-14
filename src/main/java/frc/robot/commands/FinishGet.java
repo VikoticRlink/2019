@@ -17,6 +17,5 @@ public class FinishGet extends CommandGroup {
   public FinishGet() {
     addSequential(new AbortAll());
     addSequential(new HatchHeight(RobotMap._elevatorMotor.getSelectedSensorPosition(0)+500));
-    addSequential(new Reset());
   }
 }

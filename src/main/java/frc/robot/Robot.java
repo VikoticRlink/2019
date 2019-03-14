@@ -58,7 +58,6 @@ public class Robot extends TimedRobot {
         //SmartDashboard.putData("Climber to Floor", new ClimberTo(1));
         //SmartDashboard.putData("Climber to Climb", new ClimberTo(2));
         SmartDashboard.putData("Abort Commands", new AbortAll());
-        SmartDashboard.putData("Reset after Port", new Reset());
         //SmartDashboard.putData("Store All", new StoreAll());
         SmartDashboard.putData("Drive to Port", new DriveToPort());
         //SmartDashboard.putData("Drive to Port A", new DriveToPortA());
@@ -96,6 +95,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
+    RobotMap._elevatorMotor.setSelectedSensorPosition(0, 0, 10);
     m_autonomousCommand = m_chooser.getSelected();
 
     /*
