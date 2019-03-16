@@ -18,6 +18,7 @@ import frc.robot.subsystems.*;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Robot extends TimedRobot {
+  public static Cargo m_Cargo;
   public static Climber m_Climber;
   public static Dashboard m_Dashboard;
   public static Drivebase m_Drivebase;
@@ -32,6 +33,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     RobotMap.init();
+    m_Cargo = new Cargo();
     m_Climber = new Climber();
     m_Dashboard = new Dashboard();
     m_Drivebase = new Drivebase();
@@ -40,19 +42,19 @@ public class Robot extends TimedRobot {
     m_Vision = new Vision();
     m_oi = new OI();
     //Set pneumatics to "start" positions
-    m_Pneumatics.FourBarStore();
-    m_Pneumatics.PistonStore();
+    //m_Pneumatics.FourBarStore();
+    //m_Pneumatics.PistonStore();
     
     // Testing Buttons
-        //SmartDashboard.putData("Elevator 1", new HatchHeight(1));
-        //SmartDashboard.putData("Elevator 2", new HatchHeight(2));
-        //SmartDashboard.putData("Elevator 3", new HatchHeight(3));
-        SmartDashboard.putData("Deploy Fourbar", new FourBar(true));
-        SmartDashboard.putData("Retract Fourbar", new FourBar(false));
+        SmartDashboard.putData("Elevator 1", new HatchHeight(1));
+        SmartDashboard.putData("Elevator 2", new HatchHeight(2));
+        SmartDashboard.putData("Elevator 3", new HatchHeight(3));
+        SmartDashboard.putData("Deploy Fourbar", new FourBar());
+        SmartDashboard.putData("Retract Fourbar", new FourBarIn());
         //SmartDashboard.putData("Deploy BotFace", new BotFace(true));
         //SmartDashboard.putData("Retract BotFace", new BotFace(false));
-        SmartDashboard.putData("Deploy pistons", new HatchEject(true));
-        SmartDashboard.putData("Retract pistons", new HatchEject(false));
+        SmartDashboard.putData("Deploy pistons", new HatchEject());
+        SmartDashboard.putData("Retract pistons", new HatchRetract());
         SmartDashboard.putData("Zero Elevator", new ZeroElevator());
         //SmartDashboard.putData("Climber to Home", new ClimberTo(0));
         //SmartDashboard.putData("Climber to Floor", new ClimberTo(1));

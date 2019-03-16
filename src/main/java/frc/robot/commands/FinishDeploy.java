@@ -15,6 +15,6 @@ public class FinishDeploy extends CommandGroup {
    */
   public FinishDeploy() {
     addSequential(new AbortAll());
-    addSequential(new HatchEject(true));
+    addSequential(new HatchEject());
   }
 }

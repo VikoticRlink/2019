@@ -29,6 +29,17 @@ public class Climber extends Subsystem {
   public void periodic() {
 
       if (RobotMap.controlManualMode){
+        /*if (OI.OperatorLeftJoystick()>0){
+          if (RobotMap._climbWorm.getSelectedSensorPosition(0)<1000){
+            RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
+          }else{ RobotMap._climbWorm.set(ControlMode.PercentOutput, 0);}
+        }else{
+          if (RobotMap._climbWorm.getSelectedSensorPosition(0)>-200000){
+            RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
+          }else{ RobotMap._climbWorm.set(ControlMode.PercentOutput, 0);}
+        }*/
+        RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
+       
         RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
         RobotMap._climbDrive.set(ControlMode.PercentOutput,  0.5 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
       }
@@ -63,5 +74,8 @@ public class Climber extends Subsystem {
     } else {
       return joystickvalue * RobotMap.robotDirection;
     }
-  }
+  
+  }  
+ 
+
 }

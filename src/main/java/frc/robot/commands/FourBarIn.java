@@ -8,13 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.RobotMap;
-import frc.robot.OI;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.robot.Robot;
 
-public class ToggleControlMode extends Command {
+public class FourBarIn extends Command {
+  Boolean Deploy;
   Boolean HasRan = false;
-  public ToggleControlMode() {
+  public FourBarIn() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -22,21 +22,16 @@ public class ToggleControlMode extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    HasRan=false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Scheduler.getInstance().removeAll();
-
-    if (RobotMap.controlManualMode){
-      RobotMap.controlManualMode=false;
-      OI.computerOI();
-    }else{
-      RobotMap.controlManualMode=true;
-      OI.manualOI();
-    }
-    HasRan = true;
+    
+   // Scheduler.getInstance().removeAll();
+      Robot.m_Pneumatics.FourBarStore();
+      HasRan = true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -48,6 +43,7 @@ public class ToggleControlMode extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    HasRan=false;
   }
 
   // Called when another command which requires one or more of the same

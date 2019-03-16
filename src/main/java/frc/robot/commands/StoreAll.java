@@ -16,6 +16,6 @@ public class StoreAll extends CommandGroup {
   public StoreAll() {
     addParallel(new ClimberTo(0));
     addParallel(new HatchHeight(0));
-    addSequential(new FourBar(false));
+    addSequential(new FourBarIn());
   }
 }

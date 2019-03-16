@@ -13,8 +13,7 @@ import frc.robot.Robot;
 public class HatchEject extends Command {
   Boolean HasRan = false;
   Boolean PistonsOut;
-  public HatchEject(Boolean EjectDisk) {
-    PistonsOut = EjectDisk;
+  public HatchEject() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,11 +26,7 @@ public class HatchEject extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (PistonsOut){
       Robot.m_Pneumatics.PistonDeploy();
-    }else{
-      Robot.m_Pneumatics.PistonStore();
-    }
     HasRan=true;
   }
 

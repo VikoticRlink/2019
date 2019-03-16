@@ -36,7 +36,8 @@ public class RobotMap {
     //--- Settings for Encoders ---//
     //find value for Climb
     //public static int[] ElevatorLevels= {7000, 6798, 300, -4555, -18723}; //Climb, Level1, Home, Level 2, Level 3
-    public static int[] ElevatorLevels= {-500, 8000, -6795, -20800}; //Home, Level1, Level 2, Level 3
+    //public static int[] ElevatorLevels= {-500, 8000, -6795, -20800}; //Home, Level1, Level 2, Level 3
+    public static int[] ElevatorLevels= {-500, 9800, -4600, -18350}; //Home, Level1 19.5", Level 2 47", Level 3 74.5"
     public static int[] ElevatorClimb={5590, 1500, -2000};//HAB1-2, HAB2-3, HAB 1-3
     public static int ElevatorError = 150;
     //find values for Floor and Climb
@@ -68,6 +69,7 @@ public class RobotMap {
     private static WPI_VictorSPX _elevatorSlave = new WPI_VictorSPX(13);
     public static WPI_TalonSRX _climbWorm = new WPI_TalonSRX(4);
     public static WPI_TalonSRX _climbDrive = new WPI_TalonSRX(14);
+    public static WPI_TalonSRX _cargoMotor = new WPI_TalonSRX(5);
 
     //--- vision targets ---//
     public static boolean visTargetLock=false;
@@ -97,12 +99,14 @@ public class RobotMap {
       _elevatorSlave.configFactoryDefault();
      _climbWorm.configFactoryDefault();
       _climbDrive.configFactoryDefault();
+      _cargoMotor.configFactoryDefault();
       
       _frontLeftMotor.set(ControlMode.PercentOutput, 0);
       _frontRightMotor.set(ControlMode.PercentOutput, 0);
       _elevatorMotor.set(ControlMode.PercentOutput, 0);
       _climbWorm.set(ControlMode.PercentOutput, 0);
       _climbWorm.set(ControlMode.Position, 0);
+      _cargoMotor.set(ControlMode.PercentOutput, 0);
 
       _rearLeftMotor.follow(_frontLeftMotor);
       _rearRightMotor.follow(_frontRightMotor);

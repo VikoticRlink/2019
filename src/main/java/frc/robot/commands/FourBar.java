@@ -8,13 +8,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.Robot;
 
 public class FourBar extends Command {
   Boolean Deploy;
   Boolean HasRan = false;
-  public FourBar(Boolean DeployMe) {
-    Deploy = DeployMe;
+  public FourBar() {
+    //Deploy = DeployMe;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -22,17 +23,21 @@ public class FourBar extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    HasRan=false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Deploy){
-      Robot.m_Pneumatics.FourBarDeploy();
-    }else{
-      Robot.m_Pneumatics.FourBarStore();
-    }
+  //  if (Deploy){
+    System.out.println("Executed!");
+   // Scheduler.getInstance().removeAll();
+    Robot.m_Pneumatics.FourBarDeploy();
     HasRan = true;
+   /* }else{
+      Robot.m_Pneumatics.FourBarStore();
+      HasRan = true;
+    }*/
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -44,6 +49,7 @@ public class FourBar extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    HasRan=false;
   }
 
   // Called when another command which requires one or more of the same

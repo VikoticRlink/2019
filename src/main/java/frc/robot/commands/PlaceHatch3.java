@@ -14,10 +14,10 @@ public class PlaceHatch3 extends CommandGroup {
    * Add your docs here.
    */
   public PlaceHatch3() {
-    addParallel(new FourBar(true));
-    addParallel(new HatchEject(false));
+    addParallel(new FourBar());
+    addParallel(new HatchRetract());
     addParallel(new HatchHeight(3));
-    addSequential(new DriveToPort());
+   // addSequential(new DriveToPort());
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

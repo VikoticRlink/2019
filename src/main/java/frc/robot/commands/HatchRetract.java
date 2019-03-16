@@ -6,15 +6,15 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.RobotMap;
-import frc.robot.OI;
-import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.robot.Robot;
 
-public class ToggleControlMode extends Command {
+
+public class HatchRetract extends Command {
   Boolean HasRan = false;
-  public ToggleControlMode() {
+  Boolean PistonsOut;
+  public HatchRetract() {
+
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -27,16 +27,10 @@ public class ToggleControlMode extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Scheduler.getInstance().removeAll();
 
-    if (RobotMap.controlManualMode){
-      RobotMap.controlManualMode=false;
-      OI.computerOI();
-    }else{
-      RobotMap.controlManualMode=true;
-      OI.manualOI();
-    }
-    HasRan = true;
+      Robot.m_Pneumatics.PistonStore();
+
+    HasRan=true;
   }
 
   // Make this return true when this Command no longer needs to run execute()

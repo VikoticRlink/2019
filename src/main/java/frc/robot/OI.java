@@ -64,16 +64,16 @@ public class OI {
 	public static void computerOI(){
 		 //test code
 		OperatorA.whenPressed(new PlaceHatch1()); //deploy Hatch level 1
-		OperatorA.whenReleased(new AbortAll());
+		//OperatorA.whenReleased(new AbortAll());
 		OperatorB.whenPressed(new PlaceHatch2()); //deploy Hatch level 2
-		OperatorB.whenReleased(new AbortAll());
+		//OperatorB.whenReleased(new AbortAll());
 		OperatorY.whenPressed(new PlaceHatch3()); //deploy Hatch level 3
-		OperatorY.whenReleased(new AbortAll());
+		//OperatorY.whenReleased(new AbortAll());
 		OperatorX.whenPressed(new AquireHatch()); //aquire Hatch
 		OperatorX.whenReleased(new FinishGet());
-		OperatorlBump.whenPressed(new FourBar(true));
+		OperatorlBump.whenPressed(new FourBar());
 		OperatorrBump.whenPressed(new FinishDeploy()); //Finish Deploy
-		OperatorrBump.whenReleased(new HatchEject(false));
+		OperatorrBump.whenReleased(new HatchRetract());
 
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
 	}
@@ -90,6 +90,12 @@ public class OI {
 	public static boolean DriverY() {return DriverController.getYButton();}
 	public static boolean DriverA() {return DriverController.getAButton();}
 	public static boolean DriverB() {return DriverController.getBButton();}
+	public static double DriverRightTrigger() {
+		return DriverController.getTriggerAxis(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
+	}
+	public static double DriverLeftTrigger() {
+		return DriverController.getTriggerAxis(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+	}
 
 	public static void DriverRumbleEnhanced(int Duration, double intensity, boolean rLeft, boolean rRight) {
 		RumbleEnhanced(DriverController, Duration, intensity, rLeft, rRight);
