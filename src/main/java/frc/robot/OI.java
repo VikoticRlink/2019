@@ -69,9 +69,11 @@ public class OI {
 		//OperatorB.whenReleased(new AbortAll());
 		OperatorY.whenPressed(new PlaceHatch3()); //deploy Hatch level 3
 		//OperatorY.whenReleased(new AbortAll());
-		OperatorX.whenPressed(new AquireHatch()); //aquire Hatch
-		OperatorX.whenReleased(new FinishGet());
+		//OperatorX.whenPressed(new AquireHatch()); //aquire Hatch
+		//OperatorX.whenReleased(new FinishGet());
+		OperatorX.whenPressed(new FourBarIn());
 		OperatorlBump.whenPressed(new FourBar());
+		
 		OperatorrBump.whenPressed(new FinishDeploy()); //Finish Deploy
 		OperatorrBump.whenReleased(new HatchRetract());
 
