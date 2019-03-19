@@ -17,7 +17,7 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 /**
  * Add your docs here.
- */
+ */ 
 public class Camera extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
