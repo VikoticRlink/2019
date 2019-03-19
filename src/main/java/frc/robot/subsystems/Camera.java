@@ -30,8 +30,12 @@ public class Camera extends Subsystem {
   public Camera(){
     new Thread(() -> {
       UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+      //Set camera resolution.  640x480 may be too high, testing needed
       camera.setResolution(640, 480);
       
+      //Steamworks example of putting overlay on the screen
+      //https://www.programcreek.com/java-api-examples/index.php%3Fsource_dir=servdroid-master/android/ServDroid.web/src/org/servDroid/server/?code=Team2537/Cogsworth/Cogsworth-master/src/org/usfirst/frc/team2537/robot/cameras/Cameras.java
+
       /*
       CvSink cvSink = CameraServer.getInstance().getVideo();
       CvSource outputStream = CameraServer.getInstance().putVideo("Cargo", 640, 480);
