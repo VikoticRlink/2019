@@ -1,2 +1,6 @@
 http://frc-west.github.io/
 
+https://media.readthedocs.org/pdf/frc-pdr/latest/frc-pdr.pdf
+
+Joystick sensitivity
+https://www.chiefdelphi.com/t/paper-joystick-sensitivity-gain-adjustment/107280
