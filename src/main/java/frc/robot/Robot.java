@@ -25,6 +25,7 @@ public class Robot extends TimedRobot {
   public static Elevator m_Elevator;
   public static Pneumatics m_Pneumatics;
   public static Vision m_Vision;
+  public static Camera m_Camera;
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -40,6 +41,7 @@ public class Robot extends TimedRobot {
     m_Elevator = new Elevator();
     m_Pneumatics = new Pneumatics();
     m_Vision = new Vision();
+    m_Camera = new Camera();
     m_oi = new OI();
     //Set pneumatics to "start" positions
     //m_Pneumatics.FourBarStore();
