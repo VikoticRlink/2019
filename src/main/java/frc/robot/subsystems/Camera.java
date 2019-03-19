@@ -9,6 +9,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
 import edu.wpi.cscore.CvSink;
@@ -36,7 +38,7 @@ public class Camera extends Subsystem {
       //Steamworks example of putting overlay on the screen
       //https://www.programcreek.com/java-api-examples/index.php%3Fsource_dir=servdroid-master/android/ServDroid.web/src/org/servDroid/server/?code=Team2537/Cogsworth/Cogsworth-master/src/org/usfirst/frc/team2537/robot/cameras/Cameras.java
 
-      /*
+      
       CvSink cvSink = CameraServer.getInstance().getVideo();
       CvSource outputStream = CameraServer.getInstance().putVideo("Cargo", 640, 480);
       
@@ -44,11 +46,18 @@ public class Camera extends Subsystem {
       Mat output = new Mat();
       
       while(!Thread.interrupted()) {
-          cvSink.grabFrame(source);
-          Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+        cvSink.grabFrame(source);
+
+        Imgproc.putText(source, "CARGO", new Point(output.cols() - 75, 25), 4, 0.8, new Scalar(255, 0, 0), 3);
+        Imgproc.line(source, new Point((output.cols()/2)-100, 0), new Point((output.cols()/2)-100, output.rows()), new Scalar(255, 0, 0), 1);
+        Imgproc.line(source, new Point((output.cols()/2)-99, 0), new Point((output.cols()/2)-100, output.rows()), new Scalar(255, 255, 0), 1);
+        Imgproc.line(source, new Point((output.cols()/2)+99, 0), new Point((output.cols()/2)+100, output.rows()), new Scalar(255, 255, 0), 1);
+        Imgproc.line(source, new Point((output.cols()/2)+100, 0), new Point((output.cols()/2)+100, output.rows()), new Scalar(255, 0, 0), 1);
+           
+          //Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
           outputStream.putFrame(output);
           
-      }*/
+      }
   }).start();
   }
 }
