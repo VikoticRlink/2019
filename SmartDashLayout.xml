@@ -1,10 +1,10 @@
 <xml version="1.0">
 <dashboard>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
-		<location x="234" y="-1"/>
-		<width>458</width>
-		<height>374</height>
-		<property name="Camera Choice" value="USB Camera 0"/>
+		<location x="233" y="0"/>
+		<width>463</width>
+		<height>345</height>
+		<property name="Camera Choice" value=""/>
 	</static-widget>
 	<widget field="Elevator 1" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="0" y="145"/>
@@ -36,23 +36,6 @@
 	<widget field="HAB 1-2" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="13" y="569"/>
 	</widget>
-	<widget field="Vision Y Offset" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="20" y="338"/>
-	</widget>
-	<widget field="Vision x Offset" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="23" y="310"/>
-	</widget>
-	<widget field="Limelight_Stream" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="946" y="606"/>
-		<width>216</width>
-	</widget>
-	<widget field="Limelight_Interface" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="948" y="585"/>
-		<width>218</width>
-	</widget>
-	<widget field="Limelight_PipelineName" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="928" y="559"/>
-	</widget>
 	<widget field="Climb Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="1185" y="580"/>
 	</widget>
@@ -77,9 +60,6 @@
 	<widget field="Drive to Port" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="730" y="571"/>
 	</widget>
-	<widget field="Reset after Port" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="712" y="599"/>
-	</widget>
 	<widget field="Manual Mode" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
 		<location x="130" y="1"/>
 		<width>117</width>
@@ -103,8 +83,5 @@
 	</widget>
 </dashboard>
 <live-window>
-	<widget field="Camera" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
-		<location x="0" y="526"/>
-	</widget>
 </live-window>
 </xml>
