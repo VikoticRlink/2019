@@ -125,7 +125,7 @@ public class Drivebase extends Subsystem {
 	}*/
 
 	private double getJoystickWithDeadBand(double joystickvalue) {
-		final double sensitivity = 1.0;//(values of 0-1) 0:y=input y=input^3 
+		final double sensitivity = 0.7;//(values of 0-1) 0:y=input y=input^3 
 		double joystickOutput = joystickvalue;
 		joystickOutput = ((1-sensitivity)*joystickOutput) + (sensitivity*Math.pow(joystickOutput, 3));
 
