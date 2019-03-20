@@ -125,15 +125,15 @@ public class Drivebase extends Subsystem {
 	}*/
 
 	private double getJoystickWithDeadBand(double joystickvalue) {
-		final double sensitivity = 1.0;
+		final double sensitivity = 1.0;//(values of 0-1) 0:y=input y=input^3 
 		double joystickOutput = joystickvalue;
 		joystickOutput = ((1-sensitivity)*joystickOutput) + (sensitivity*Math.pow(joystickOutput, 3));
 
 		if (Math.abs(joystickvalue)<.1) {
 			return 0 * RobotMap.robotDirection;
-		} else if (joystickvalue > .9) {
+		} else if (joystickvalue > .95) {
 			return 1 * RobotMap.robotDirection;
-		}else if (joystickvalue < -0.9) {
+		}else if (joystickvalue < -0.95) {
 			return -1 * RobotMap.robotDirection;
 		} else {
 			return joystickOutput * RobotMap.robotDirection;
