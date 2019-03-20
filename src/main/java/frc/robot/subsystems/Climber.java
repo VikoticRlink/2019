@@ -29,18 +29,20 @@ public class Climber extends Subsystem {
   public void periodic() {
 
       if (RobotMap.controlManualMode){
-        /*if (OI.OperatorLeftJoystick()>0){
-          if (RobotMap._climbWorm.getSelectedSensorPosition(0)<1000){
+        if (RobotMap._climbWorm.getSelectedSensorPosition(0)>0){
+          if(RobotMap._climbWorm.getSelectedSensorPosition(0)<61600){
             RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
-          }else{ RobotMap._climbWorm.set(ControlMode.PercentOutput, 0);}
+          }else{
+            if(OI.OperatorLeftJoystick()<0){
+              RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
+            }else{RobotMap._climbWorm.set(ControlMode.PercentOutput,0);}
+          }
         }else{
-          if (RobotMap._climbWorm.getSelectedSensorPosition(0)>-200000){
+          if(OI.OperatorLeftJoystick()>0){
             RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
-          }else{ RobotMap._climbWorm.set(ControlMode.PercentOutput, 0);}
-        }*/
-        RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
-       
-        RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
+          }else{RobotMap._climbWorm.set(ControlMode.PercentOutput,0);}
+
+        }
         RobotMap._climbDrive.set(ControlMode.PercentOutput,  0.5 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
       }
 
