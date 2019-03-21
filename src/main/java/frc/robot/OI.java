@@ -20,8 +20,8 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 public class OI {
 	private static XboxController DriverController, OperatorController;
 	private static Button DriverStart, DriverBack;
-	private static Button OperatorX, OperatorY, OperatorA, OperatorB, OperatorlBump, OperatorrBump, OperatorBack, OperatorStart;
-	
+	private static Button OperatorX, OperatorY, OperatorA, OperatorB, OperatorlBump,  OperatorBack, OperatorStart;
+
 	public OI() {
 		DriverController = new XboxController(0);
 		DriverBack = new JoystickButton(DriverController, 7);
@@ -36,10 +36,10 @@ public class OI {
 		OperatorX = new JoystickButton(OperatorController, 3);
 		OperatorY = new JoystickButton(OperatorController, 4);
 		OperatorlBump = new JoystickButton(OperatorController, 5);
-		OperatorrBump = new JoystickButton(OperatorController, 6);
+		//OperatorrBump = new JoystickButton(OperatorController, 6);
 		OperatorBack = new JoystickButton(OperatorController, 7);
 		OperatorStart = new JoystickButton(OperatorController, 8);
-
+		
 		OperatorStart.whenPressed(new ToggleControlMode());
 		OperatorBack.whenPressed(new AbortAll());
 
@@ -71,11 +71,15 @@ public class OI {
 		//OperatorY.whenReleased(new AbortAll());
 		//OperatorX.whenPressed(new AquireHatch()); //aquire Hatch
 		//OperatorX.whenReleased(new FinishGet());
-		OperatorX.whenPressed(new FourBarIn());
+		/*OperatorX.whenPressed(new FourBarIn());
 		OperatorlBump.whenPressed(new FourBar());
 		
-		OperatorrBump.whenPressed(new FinishDeploy()); //Finish Deploy
-		OperatorrBump.whenReleased(new HatchRetract());
+		OperatorrBump.whenPressed(new HatchEject()); 
+		OperatorrBump.whenReleased(new HatchRetract());*/
+		OperatorlBump.whenPressed(new FourBar());
+		OperatorX.whenPressed(new HatchEject()); 
+		OperatorX.whenReleased(new HatchRetract());
+
 
 		NetworkTableInstance.getDefault().getTable("limelight").getEntry("stream").setNumber(2);
 	}
@@ -85,7 +89,9 @@ public class OI {
 		return DriverController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);	}
 	public static double DriverRightJoystick() {
 		return DriverController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);	}
-	
+	public static int DriverPOV(){
+		return DriverController.getPOV();
+	}
 	public static boolean DriverRightBumper() {return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);}
 	public static boolean DriverLeftBumper() {return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);}
 	public static boolean DriverX() {return DriverController.getXButton();}
@@ -116,6 +122,11 @@ public class OI {
 	public static double OperatorLeftTrigger() {
 		return OperatorController.getTriggerAxis(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
 	}
+	public static int OperatorPOV(){
+		return OperatorController.getPOV();
+	}
+	public static boolean OperatorRightBumper() {return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);}
+	
 	public static void OperatorRumbleEnhanced(int Duration, double intensity, boolean rLeft, boolean rRight) {
 		RumbleEnhanced(OperatorController, Duration, intensity, rLeft, rRight);
 	}

@@ -59,6 +59,8 @@ public class RobotMap {
     public static Boolean HatchDeployerOut=false;
     public static DoubleSolenoid FourBarDeployer;
     public static Boolean FourBarOut=false;
+    public static DoubleSolenoid CargoDeployer;
+    public static Boolean Deployer=false;
 
   	//--- Motor Controllers ---//
     public static WPI_TalonSRX _frontLeftMotor = new WPI_TalonSRX(1);
@@ -88,7 +90,8 @@ public class RobotMap {
       //--- Pneumatics ---//
       airSupply = new Compressor(60);
       HatchDeployer = new DoubleSolenoid(60, 0, 1);
-    	FourBarDeployer = new DoubleSolenoid(60,2,3);
+      FourBarDeployer = new DoubleSolenoid(60,2,3);
+      CargoDeployer = new DoubleSolenoid(60,4,5);
 
       //--- Motor Controller Setups ---//
       _frontLeftMotor.configFactoryDefault();

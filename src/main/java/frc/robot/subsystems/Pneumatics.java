@@ -45,4 +45,12 @@ public class Pneumatics extends Subsystem {
     RobotMap.HatchDeployer.set(DoubleSolenoid.Value.kReverse);
     RobotMap.HatchDeployerOut=false;
   }
+  public void CargoDeploy() {
+      RobotMap.CargoDeployer.set(DoubleSolenoid.Value.kForward);
+      RobotMap.Deployer=true;
+  }
+  public void CargoStore() {
+    RobotMap.CargoDeployer.set(DoubleSolenoid.Value.kReverse);
+    RobotMap.Deployer=false;
+  }
 }

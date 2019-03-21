@@ -9,8 +9,10 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.OI;
+import frc.robot.Robot;
 
 /**
  * Add your docs here.
@@ -26,12 +28,19 @@ public class Cargo extends Subsystem {
   }
   @Override
   public void periodic() {
-    if (OI.DriverRightBumper()){
-      RobotMap._cargoMotor.set(ControlMode.PercentOutput,  -0.4  * getJoystickWithDeadBand(OI.DriverRightTrigger()));
+    if (OI.OperatorRightBumper()){
+      RobotMap._cargoMotor.set(ControlMode.PercentOutput,  -0.4  * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
     }else{
-      RobotMap._cargoMotor.set(ControlMode.PercentOutput, 0.3 * getJoystickWithDeadBand(OI.DriverRightTrigger()));
+      RobotMap._cargoMotor.set(ControlMode.PercentOutput, 0.3 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
     }
-       
+    switch(OI.OperatorPOV()){
+      case 0:
+        Robot.m_Pneumatics.CargoDeploy();
+      break;
+      case 180:
+        Robot.m_Pneumatics.CargoStore();
+      break;
+    }
   }
 
   private double getJoystickWithDeadBand(double joystickvalue) {
