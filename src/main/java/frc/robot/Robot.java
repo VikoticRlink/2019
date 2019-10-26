@@ -46,6 +46,8 @@ public class Robot extends TimedRobot {
     //Set pneumatics to "start" positions
     //m_Pneumatics.FourBarStore();
     //m_Pneumatics.PistonStore();
+    m_Pneumatics.CargoStore();
+    m_Pneumatics.FourBarStore();
     
     // Testing Buttons
         SmartDashboard.putData("Elevator 1", new HatchHeight(1));

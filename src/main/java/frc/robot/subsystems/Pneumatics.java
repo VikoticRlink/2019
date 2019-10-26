@@ -24,22 +24,22 @@ public class Pneumatics extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-
   public void FourBarDeploy() {
-    RobotMap.FourBarDeployer.set(DoubleSolenoid.Value.kForward);
+    RobotMap.FourBarDeployer.set(DoubleSolenoid.Value.kReverse);
     RobotMap.FourBarOut=true;
   }
   public void FourBarStore() {
-    if (RobotMap._elevatorMotor.getSelectedSensorPosition(0)<=0){
-      RobotMap.FourBarDeployer.set(DoubleSolenoid.Value.kReverse);
+   // if (RobotMap._elevatorMotor.getSelectedSensorPosition(0)<=0){
+      RobotMap.FourBarDeployer.set(DoubleSolenoid.Value.kForward);
       RobotMap.FourBarOut=false;
-    }
+      PistonDeploy();
+   // }
   }  
   public void PistonDeploy() {
-    if (RobotMap.FourBarOut){
+    //if (RobotMap.FourBarOut){
       RobotMap.HatchDeployer.set(DoubleSolenoid.Value.kForward);
       RobotMap.HatchDeployerOut=true;
-    }
+    //}
   }
   public void PistonStore() {
     RobotMap.HatchDeployer.set(DoubleSolenoid.Value.kReverse);

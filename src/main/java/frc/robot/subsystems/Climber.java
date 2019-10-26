@@ -30,7 +30,7 @@ public class Climber extends Subsystem {
 
       if (RobotMap.controlManualMode){
         if (RobotMap._climbWorm.getSelectedSensorPosition(0)>0){
-          if(RobotMap._climbWorm.getSelectedSensorPosition(0)<61600){
+          if(RobotMap._climbWorm.getSelectedSensorPosition(0)<60600){
             RobotMap._climbWorm.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorLeftJoystick()));
           }else{
             if(OI.OperatorLeftJoystick()<0){
@@ -43,7 +43,9 @@ public class Climber extends Subsystem {
           }else{RobotMap._climbWorm.set(ControlMode.PercentOutput,0);}
 
         }
-        RobotMap._climbDrive.set(ControlMode.PercentOutput,  0.5 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
+
+        
+        RobotMap._climbDrive.set(ControlMode.PercentOutput,  0.5 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
       }
 
   }

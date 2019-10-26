@@ -48,12 +48,12 @@ public class Drivebase extends Subsystem {
   public void DriveWithSpeed() {
 			if (OI.DriverLeftBumper()){
 			//	MainDrive.tankDrive(RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()), RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
-				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
-				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
+				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJSWithDeadBandRight(OI.DriverRightJoystick()));
+				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.slowSpeed * getJSWithDeadBandLeft(OI.DriverLeftJoystick()));
 			}else{
 			//	MainDrive.tankDrive(RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()), RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
-				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverRightJoystick()));
-				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJoystickWithDeadBand(OI.DriverLeftJoystick()));
+				RobotMap._frontLeftMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJSWithDeadBandRight(OI.DriverRightJoystick()));
+				RobotMap._frontRightMotor.set(ControlMode.PercentOutput, RobotMap.maxSpeed * getJSWithDeadBandLeft(OI.DriverLeftJoystick()));
 			}
 	}
 
@@ -124,7 +124,22 @@ public class Drivebase extends Subsystem {
 		MainDrive.arcadeDrive(MAX_DRIVE * DRIVE_K, RobotMap.visXOffset * STEER_K);
 	}*/
 
-	private double getJoystickWithDeadBand(double joystickvalue) {
+	private double getJSWithDeadBandLeft(double joystickvalue) {
+		final double sensitivity = 0.7;//(values of 0-1) 0:y=input y=input^3 
+		double joystickOutput = joystickvalue;
+		joystickOutput = ((1-sensitivity)*joystickOutput) + (sensitivity*Math.pow(joystickOutput, 3));
+
+		if (Math.abs(joystickvalue)<.1) {
+			return 0 * RobotMap.robotDirection;
+		} else if (joystickvalue > .95) {
+			return 0.9 * RobotMap.robotDirection;
+		}else if (joystickvalue < -0.95) {
+			return -0.9 * RobotMap.robotDirection;
+		} else {
+			return (joystickOutput - 0.1) * RobotMap.robotDirection;
+		}
+	}
+	private double getJSWithDeadBandRight(double joystickvalue) {
 		final double sensitivity = 0.7;//(values of 0-1) 0:y=input y=input^3 
 		double joystickOutput = joystickvalue;
 		joystickOutput = ((1-sensitivity)*joystickOutput) + (sensitivity*Math.pow(joystickOutput, 3));
@@ -139,6 +154,5 @@ public class Drivebase extends Subsystem {
 			return joystickOutput * RobotMap.robotDirection;
 		}
 	}
-
 	
 }
